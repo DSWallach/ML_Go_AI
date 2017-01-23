@@ -83,7 +83,7 @@ def run_training():
     cross_entropy = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(y, y_))
     
     # Training
-    train_step = tf.train.GradientDescentOptimizer(0.5).minimize(cross_entropy)
+    train_step = tf.train.GradientDescentOptimizer(FLAGS.learning_rate).minimize(cross_entropy)
     
     # Run the training
     for i in range(FLAGS.max_steps):
@@ -109,6 +109,10 @@ def run_training():
     
     # Save the trained model
     saver.save(sess, 'Tensor-Go')
+
+    # For curiousness
+    print(x)
+    print(y_)
 
 # Convolve x_image with the weight tensor, add bias
 # apply the ReLU function and max pool.
