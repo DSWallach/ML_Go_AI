@@ -696,8 +696,8 @@ def play_go(BOARD_LENGTH):
             moves = game.moves / 10000
             try:
                # print("Try "+game.xoro)
-                x = random.randint(0, BOARD_LENGTH-1)
-                y = random.randint(0, BOARD_LENGTH-1)
+                x = random.randint(0, BOARD_LENGTH - 1)
+                y = random.randint(0, BOARD_LENGTH - 1)
                 if random.random() < moves:
                     x = -1
                     y = -1
@@ -731,6 +731,3 @@ def play_go(BOARD_LENGTH):
     t1 = time.clock() # End Time
     timedur = t1 - t0 # Duration
     print("Moves "+str(move)+" Duration "+str(timedur))
-    time.sleep(1)
-
-play_go(19)

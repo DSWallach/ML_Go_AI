@@ -6,9 +6,10 @@ import sys
 import time
 import GoGame as gg
 import IllegalMove as im
+import numpy as np
 import random
 
-BOARD_LENGTH = 5
+BOARD_LENGTH = 9
 BOARD_SIZE = BOARD_LENGTH * BOARD_LENGTH
 
 # FUNCTIONS
@@ -28,27 +29,27 @@ def max_pool_2x2(x):
 
 
 def run_training():
- 
+
     # Lightweight class that stores the training, validation, and testing sets
     mnist = input_data.read_data_sets('MNIST_data', one_hot=True)
-    
+
     # Interactive Session for interleving operations which build a computation
     # graph with those that run the graph.
     sess = tf.InteractiveSession()
-    
+
     # Get the time at the start of the session.
     t0 = time.clock()
 
-    if (FLAGS.load_graph):
+    if FLAGS.load_graph:
         # Saver for saving a loaded graph
         saver = tf.train.import_meta_graph(FLAGS.graph_name+'.meta')
 
         # Load the saved graph
         saver.restore(sess, tf.train.latest_checkpoint('./'))
-        
+
         # Load the saved vars
         all_vars = tf.get_collection(FLAGS.graph_name+'-vars')
-        
+
         # Load vars into variable names
         W = all_vars[0]
         b = all_vars[1]
@@ -72,7 +73,7 @@ def run_training():
     # Input layer
     ### x = tf.placeholder(tf.float32, shape=[BOARD_LENGTH, BOARD_LENGTH])
     x = tf.placeholder(tf.float32, shape=[None, 784])
-    
+
     # Output layer
     ### y_ = tf.placeholder(tf.float32, shape=[BOARD_LENGTH, BOARD_LENGTH])
     y_ = tf.placeholder(tf.float32, shape=[None, 10])
@@ -82,23 +83,22 @@ def run_training():
 
     # Implement regression
     y = tf.matmul(x, W) + b
-    
+
     # Loss function
     cross_entropy = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(y, y_))
-    
+
     # Training
     train_step = tf.train.GradientDescentOptimizer(FLAGS.learning_rate).minimize(cross_entropy)
-    
 
     gg.play_go(BOARD_LENGTH)
     # Run the training
     for i in range(FLAGS.max_steps):
         batch = mnist.train.next_batch(100)
         train_step.run(feed_dict={x: batch[0], y_:batch[1]})
-        
+
     # Check the model
-    correct_prediction = tf.equal(tf.argmax(y, 1), tf.argmax(y_,1))
-        
+    correct_prediction = tf.equal(tf.argmax(y, 1), tf.argmax(y_, 1))
+
     # Accuracy
     accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
 
@@ -111,8 +111,11 @@ def run_training():
     # Print the elapsed time 
     print("Elapsed time = "+ str(tFinal)+ " seconds")
     # Print the accuracy of the classifier
-    print("Accuracy = "+str(accuracy.eval(feed_dict={x: mnist.test.images, y_: mnist.test.labels}))+" / 1")
-    
+    print("Accuracy = "+
+          str(accuracy.eval(feed_dict={
+            x: mnist.test.images,
+            y_: mnist.test.labels}))+" / 1")
+
     # Save the trained model
     saver.save(sess, 'Tensor-Go')
 
