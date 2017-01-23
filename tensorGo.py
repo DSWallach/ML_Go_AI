@@ -26,35 +26,6 @@ def conv2d(x, W):
 def max_pool_2x2(x):
     return tf.nn.max_pool(x, ksize=[1, 2, 2, 1], strides=[1, 2, 2, 1], padding='SAME')
 
-def play_go():
-    game = gg.GoGame(BOARD_LENGTH)
-    count = 0
-    move = 0
-    while(game.gameover == 0):
-        while True:
-            try:
-                x = random.randint(-1, BOARD_LENGTH-1)
-                y = random.randint(-1, BOARD_LENGTH-1)
-                game.makeMove(x, y)
-                break
-            except im.IllegalKo as ik:
-                count+=1
-                print ("Caught exception "+str(count)+" at move "+str(move))
-                continue
-        while True:
-            try:
-                game.randomMove()
-            except im.IllegalKo as ik:
-                count+=1
-                print ("Caught exception "+str(count)+" at move "+str(move))
-                continue
-        move+=1
-    if (game.victor == 1):
-        print ("I won!")
-    elif (game.victor == -1):
-        print ("I lost.")
-    else:
-        print ("meh")
 
 def run_training():
  
@@ -119,7 +90,7 @@ def run_training():
     train_step = tf.train.GradientDescentOptimizer(FLAGS.learning_rate).minimize(cross_entropy)
     
 
-    play_go()
+    gg.play_go(BOARD_LENGTH)
     # Run the training
     for i in range(FLAGS.max_steps):
         batch = mnist.train.next_batch(100)

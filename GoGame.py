@@ -1,5 +1,6 @@
 import IllegalMove as im
 import random
+import time
 
 ## Generates blank game states
 def initialize(boardsize):
@@ -189,9 +190,9 @@ class GoGame():
     
         ## Gives a point to the each player for every pebble they have
         ## on the board.
-        for group in o_groups:
+        for group in self.o_groups:
             self.o_points += len(group)
-        for group in x_groups:
+        for group in self.x_groups:
             self.x_points += len(group)
             
         ## The permimeter of these empty positions is here considered,
@@ -199,21 +200,21 @@ class GoGame():
         ## one player or the other, that player gains a number of points
         ## equal to the length of that group (the number of positions
         ## that their pieces enclose).
-        for group in non_groups:
+        for group in self.non_groups:
             no = 0
             for element in self.gperm(group):
-                if gsc[element[1]][element[0]] != 'o':
+                if self.gsc[element[1]][element[0]] != 'o':
                     no = 1
             if no == 0:
-                o_points += len(group)
+                self.o_points += len(group)
                     
-        for group in non_groups:
+        for group in self.non_groups:
             no = 0
             for element in self.gperm(group):
-                if gsc[element[1]][element[0]] != 'x':
+                if self.gsc[element[1]][element[0]] != 'x':
                     no = 1
             if no == 0:
-                x_points += len(group)
+                self.x_points += len(group)
                     
     ## Checks for capture, and removes the captured pieces from the board
     def capture(self, xoro):
@@ -236,7 +237,7 @@ class GoGame():
         for group in groups:
             safe = 0
             for element in self.gperm(group):
-                if gsf[element[1]][element[0]] != otherplayer:
+                if self.gsf[element[1]][element[0]] != otherplayer:
                     safe = 1
             if safe != 1:
                 edited = 1
@@ -380,10 +381,6 @@ class GoGame():
     ## the validity of the move is checked, and
     ## the endgame status is checked.
     def turn(self):
-        global xoro
-        global notxoro
-        global player1_pass
-        global player2_pass
 
         hold = 1
         while hold == 1:
@@ -393,7 +390,7 @@ class GoGame():
             ## is given the option of whether to place
             ## a piece or to pass, and where to place
             ## that piece.
-            xy = self.selectmove(xoro)
+            xy = self.selectmove()
             if xy == 'pass':
                 if xoro == 'o':
                     self.player1_pass = 1
@@ -406,7 +403,7 @@ class GoGame():
                 self.player2_pass = 0
                 ## The new piece is added to its group,
                 ## or a new group is created for it.
-                self.addpoint(xy,self.xoro)
+                self.addpoint(xy)#,self.xoro)
                 ## Groups that have been connected by
                 ## the this placement are joined together
                 self.concat(self.xoro)
@@ -420,8 +417,8 @@ class GoGame():
                 while minihold == 1:
                     self.restore_o = []
                     self.restore_x = []
-                    self.capture(xoro)
-                    self.capture(notxoro)
+                    self.capture(self.xoro)
+                    self.capture(self.notxoro)
                     if edited == 0:
                         minihold = 0
                         edited = 0
@@ -437,14 +434,15 @@ class GoGame():
                 ## the groups stored in the restore lists to
                 ## restore the o_ and x_groups lists.
                 else:
-                    for group in restore_o:
+                    for group in self.restore_o:
                         self.o_groups.append(group)
-                    for group in restore_x:
+                    for group in self.restore_x:
                         self.x_groups.append(group)
                     print ("Throw Exception")
                     raise im.IllegalMove("invalid move - that returns to board to a previous state")
-        if (player1_pass == 1) & (player2_pass == 1):
+        if (self.player1_pass == 1) & (self.player2_pass == 1):
             self.gameover = 1
+            self.endGame()
                                             
     ## Called to start a game
     def main(self):
@@ -457,7 +455,7 @@ class GoGame():
             self.xoro = 'o'
             self.notxoro = 'x'
             print()
-            self.printboard(gsc)
+            self.printboard(self.gsc)
             
             self.turn()
             if self.gameover == 1:
@@ -467,7 +465,7 @@ class GoGame():
             self.xoro = 'x'
             self.notxoro = 'o'
             print()
-            self.printboard(gsc)
+            self.printboard(self.gsc)
             
             self.turn()
             
@@ -476,14 +474,14 @@ class GoGame():
         print()
         print('final board:')
         print()
-        self.printboard(gsc)
+        self.printboard(self.gsc)
         print()
-        print('o points: ',str(o_points))
-        print('x points: ',str(x_points))
+        print('o points: ',str(self.o_points))
+        print('x points: ',str(self.x_points))
         ## Determines the winner
-        if o_points > x_points:
+        if self.o_points > self.x_points:
             print('o wins')
-        elif x_points > o_points:
+        elif self.x_points > self.o_points:
             print('x wins')
         else:
             print('tie')
@@ -505,16 +503,11 @@ class GoGame():
                     print('invalid')
 
     def makeMove(self, x, y):
-        global xoro
-        global notxoro
-        global player1_pass
-        global player2_pass
-        
         hold = 1
         while hold == 1:
             #print()
-            #print('place for '+xoro)
-            ## By calling selectmove(), the player
+            #print('place for '+self.xoro)
+            ## By calling seleself.ctmove(), the player
             ## is given the option of whether to place
             ## a piece or to pass, and where to place
             ## that piece.
@@ -565,12 +558,14 @@ class GoGame():
                         ## the groups stored in the restore lists to
                         ## restore the o_ and x_groups lists.
                     else:
-                        print('invalid move - that returns to board to a previous state')
+                        ###print('invalid move - that returns to board to a previous state')
                         for group in self.restore_o:
                             self.o_groups.append(group)
                         for group in self.restore_x:
                             self.x_groups.append(group)
+                        raise im.IllegalKo('invalid move - that returns to board to a previous state')
         if (self.player1_pass == 1) & (self.player2_pass == 1):
+            gameover = 1
             self.endGame()
 
             
@@ -584,10 +579,11 @@ class GoGame():
             ## that piece.
             x = random.randint(0,self.boardsize-1)
             y = random.randint(0,self.boardsize-1)
-
-            if (random.random() > 0.95):
+            #print("x,y")
+            #print(x)
+            #print(y)
+            if (random.random() > 0.9 or (self.player1_pass == 1 and random.random() > .4)):
                 xy = 'pass'
-                print("pass")
             else:
                 xy = [x, y]
             if xy == 'pass':
@@ -614,8 +610,8 @@ class GoGame():
                 ## to 1)
                 edited = 0
                 while minihold == 1:
-                    restore_o = []
-                    restore_x = []
+                    self.restore_o = []
+                    self.restore_x = []
                     self.capture(self.xoro)
                     self.capture(self.notxoro)
                     if edited == 0:
@@ -623,6 +619,7 @@ class GoGame():
                         edited = 0
                     else:
                         edited = 0
+                    
                     ## Checks to see if the move, given all the
                     ## captures it causes, would return the board
                     ## to a previous game state.
@@ -633,30 +630,31 @@ class GoGame():
                     ## the groups stored in the restore lists to
                     ## restore the o_ and x_groups lists.
                     else:
-                        for group in restore_o:
+                        for group in self.restore_o:
                             self.o_groups.append(group)
-                        for group in restore_x:
+                        for group in self.restore_x:
                             self.x_groups.append(group)
                         raise im.IllegalKo('invalid move - that returns to board to a previous state')
         if (self.player1_pass == 1) & (self.player2_pass == 1):
             self.endGame()
 
     def endGame(self):
+        self.gameover = 1
         ## Counts the score of both players
         self.count()
         print()
         print('final board:')
         print()
-        self.printboard(gsc)
+        self.printboard(self.gsc)
         print()
-        print('o points: ',str(o_points))
-        print('x points: ',str(x_points))
+        print('o points: ',str(self.o_points))
+        print('x points: ',str(self.x_points))
         ## Determines the winner
-        if o_points > x_points:
+        if self.o_points > self.x_points:
             print('o wins')
-            self.victor = 1
+            self.victor = 1            
             return 1
-        elif x_points > o_points:
+        elif self.x_points > self.o_points:
             print('x wins')
             self.victor = -1
             return -1
@@ -665,37 +663,46 @@ class GoGame():
             self.victor = 0
             return 0
 
-def play_go():
-    BOARD_LENGTH = 5
+def play_go(BOARD_LENGTH):
+    t0 = time.clock() # Start Time
     game = GoGame(BOARD_LENGTH)
     count = 0
     move = 0
     while(game.gameover == 0):
+        game.xoro = "x"
+        game.notxoro = "o"
         while True:
             try:
-                x = random.randint(-1, BOARD_LENGTH-1)
-                y = random.randint(-1, BOARD_LENGTH-1)
+                x = random.randint(0, BOARD_LENGTH-1)
+                y = random.randint(0, BOARD_LENGTH-1)
+                if (random.random() > 0.995):
+                    x = -1
+                    y = -1
                 game.makeMove(x, y)
-                print("My move")
                 break
             except im.IllegalKo as ik:
                 count+=1
-                print ("Caught exception "+str(count)+" at move "+str(move))
+                #print ("Caught exception "+str(count)+" at move "+str(move))
                 continue
         move+=1
+        game.printboard(game.gsc)
+        if (game.gameover == 1):
+            break
+        game.xoro = "o"
+        game.notxoro = "x"
         while True:
             try:
                 game.randomMove()
+                break
             except im.IllegalKo as ik:
                 count+=1
-                print ("Caught exception "+str(count)+" at move "+str(move))
+                #print ("Caught exception "+str(count)+" at move "+str(move))
                 continue
         move+=1
-    if (game.victor == 1):
-        print ("I won!")
-    elif (game.victor == -1):
-        print ("I lost.")
-    else:
-        print ("meh")
+        game.printboard(game.gsc)
 
-play_go()
+        #time.sleep(0.01)
+    t1 = time.clock() # End Time
+    timedur = t1 - t0 # Duration
+    print("Moves "+str(move)+" Duration "+str(timedur))
+    time.sleep(1)
