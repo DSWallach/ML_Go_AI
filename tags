@@ -1,0 +1,141 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+BOARD_LENGTH	tensorGo.py	/^BOARD_LENGTH = 5$/;"	kind:variable	line:11
+BOARD_SIZE	tensorGo.py	/^BOARD_SIZE = BOARD_LENGTH * BOARD_LENGTH$/;"	kind:variable	line:12
+FLAGS	MNIST/fully_connected_feed.py	/^FLAGS = None$/;"	kind:variable	line:34
+GoGame	GoGame.py	/^class GoGame():$/;"	kind:class	line:16
+GoGame.py	GoGame.py	1;"	kind:file	line:1
+IMAGE_PIXELS	MNIST/mnist.py	/^IMAGE_PIXELS = IMAGE_SIZE * IMAGE_SIZE$/;"	kind:variable	line:39
+IMAGE_SIZE	MNIST/mnist.py	/^IMAGE_SIZE = 28$/;"	kind:variable	line:38
+IllegalKo	IllegalMove.py	/^class IllegalKo(IllegalMove):$/;"	kind:class	line:12
+IllegalMove	IllegalMove.py	/^class IllegalMove(Exception):$/;"	kind:class	line:1
+IllegalMove.py	IllegalMove.py	1;"	kind:file	line:1
+IllegalMoveAlreadyMade	IllegalMove.py	/^class IllegalMoveAlreadyMade(IllegalMove):$/;"	kind:class	line:23
+NUM_CLASSES	MNIST/mnist.py	/^NUM_CLASSES = 10$/;"	kind:variable	line:35
+W	MNIST/tester.py	/^W = tf.Variable(tf.zeros([784, 10]))$/;"	kind:variable	line:38
+W_conv1	MNIST/tester.py	/^W_conv1 = weight_variable([5, 5, 1, 32])$/;"	kind:variable	line:44
+W_conv2	MNIST/tester.py	/^W_conv2 = weight_variable([5, 5, 32, 64])$/;"	kind:variable	line:54
+W_fc1	MNIST/tester.py	/^W_fc1 = weight_variable([7 * 7 * 64, 1024])$/;"	kind:variable	line:63
+W_fc2	MNIST/tester.py	/^W_fc2 = weight_variable([1024, 10])$/;"	kind:variable	line:74
+__init__	GoGame.py	/^    def __init__(self, boardLength):$/;"	kind:member	line:17
+__init__	IllegalMove.py	/^    def __init__(self, *args, **kwargs):$/;"	kind:member	line:20
+__init__	IllegalMove.py	/^    def __init__(self, *args, **kwargs):$/;"	kind:member	line:32
+__init__	IllegalMove.py	/^    def __init__(self, *args, **kwargs):$/;"	kind:member	line:9
+absolute_import	MNIST/fully_connected_feed.py	/^from __future__ import absolute_import$/;"	kind:namespace	line:17
+absolute_import	MNIST/mnist.py	/^from __future__ import absolute_import$/;"	kind:namespace	line:26
+accuracy	MNIST/tester.py	/^accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))$/;"	kind:variable	line:93
+addpoint	GoGame.py	/^    def addpoint(self, xy):$/;"	kind:member	line:323
+argparse	MNIST/fully_connected_feed.py	/^import argparse$/;"	kind:namespace	line:22
+argparse	tensorGo.py	/^import argparse$/;"	kind:namespace	line:3
+argparse	tester.py	/^import argparse$/;"	kind:namespace	line:3
+b	MNIST/tester.py	/^b = tf.Variable(tf.zeros([10]))$/;"	kind:variable	line:39
+b_conv1	MNIST/tester.py	/^b_conv1 = bias_variable([32])$/;"	kind:variable	line:45
+b_conv2	MNIST/tester.py	/^b_conv2 = bias_variable([64])$/;"	kind:variable	line:55
+b_fc1	MNIST/tester.py	/^b_fc1 = bias_variable([1024])$/;"	kind:variable	line:64
+b_fc2	MNIST/tester.py	/^b_fc2 = bias_variable([10])$/;"	kind:variable	line:75
+bias_variable	MNIST/tester.py	/^def bias_variable(shape):$/;"	kind:function	line:10
+bias_variable	tensorGo.py	/^def bias_variable(shape):$/;"	kind:function	line:19
+bias_variable	tester.py	/^def bias_variable(shape):$/;"	kind:function	line:13
+builtin	MNIST/fully_connected_feed.py	/^from six.moves import xrange  # pylint: disable=redefined-builtin$/;"	kind:namespace	line:27
+capture	GoGame.py	/^    def capture(self, xoro):$/;"	kind:member	line:220
+checkmove	GoGame.py	/^    def checkmove(self, x, y):$/;"	kind:member	line:381
+concat	GoGame.py	/^    def concat(self, xoro):$/;"	kind:member	line:278
+conv2d	MNIST/tester.py	/^def conv2d(x, W):$/;"	kind:function	line:14
+conv2d	tensorGo.py	/^def conv2d(x, W):$/;"	kind:function	line:23
+conv2d	tester.py	/^def conv2d(x, W):$/;"	kind:function	line:17
+correct_prediction	MNIST/tester.py	/^correct_prediction = tf.equal(tf.argmax(y_conv,1), tf.argmax(y_,1))$/;"	kind:variable	line:92
+count	GoGame.py	/^    def count(self):$/;"	kind:member	line:174
+cross_entropy	MNIST/tester.py	/^cross_entropy = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(y_conv, y_))$/;"	kind:variable	line:90
+disable	MNIST/fully_connected_feed.py	/^from six.moves import xrange  # pylint: disable=redefined-builtin$/;"	kind:namespace	line:27
+division	MNIST/fully_connected_feed.py	/^from __future__ import division$/;"	kind:namespace	line:18
+division	MNIST/mnist.py	/^from __future__ import division$/;"	kind:namespace	line:27
+do_eval	MNIST/fully_connected_feed.py	/^def do_eval(sess,$/;"	kind:function	line:81
+endGame	GoGame.py	/^    def endGame(self):$/;"	kind:member	line:663
+evaluation	MNIST/mnist.py	/^def evaluation(logits, labels):$/;"	kind:function	line:119
+fill_feed_dict	MNIST/fully_connected_feed.py	/^def fill_feed_dict(data_set, images_pl, labels_pl):$/;"	kind:function	line:56
+fully_connected_feed.py	MNIST/fully_connected_feed.py	1;"	kind:file	line:1
+gg	tensorGo.py	/^import GoGame as gg$/;"	kind:namespace	line:7
+goodmove	GoGame.py	/^    def goodmove(self):$/;"	kind:member	line:264
+gperm	GoGame.py	/^    def gperm(self, group):$/;"	kind:member	line:81
+h_conv1	MNIST/tester.py	/^h_conv1 = tf.nn.relu(conv2d(x_image, W_conv1) + b_conv1)$/;"	kind:variable	line:49
+h_conv2	MNIST/tester.py	/^h_conv2 = tf.nn.relu(conv2d(h_pool1, W_conv2) + b_conv2)$/;"	kind:variable	line:58
+h_fc1	MNIST/tester.py	/^h_fc1 = tf.nn.relu(tf.matmul(h_pool2_flat, W_fc1) + b_fc1) $/;"	kind:variable	line:66
+h_fc1_drop	MNIST/tester.py	/^h_fc1_drop = tf.nn.dropout(h_fc1, keep_prob)$/;"	kind:variable	line:71
+h_pool1	MNIST/tester.py	/^h_pool1 = max_pool_2x2(h_conv1)$/;"	kind:variable	line:50
+h_pool2	MNIST/tester.py	/^h_pool2 = max_pool_2x2(h_conv2)$/;"	kind:variable	line:59
+h_pool2_flat	MNIST/tester.py	/^h_pool2_flat = tf.reshape(h_pool2, [-1, 7*7*64])$/;"	kind:variable	line:65
+im	GoGame.py	/^import IllegalMove as im$/;"	kind:namespace	line:1
+im	tensorGo.py	/^import IllegalMove as im$/;"	kind:namespace	line:8
+inference	MNIST/mnist.py	/^def inference(images, hidden1_units, hidden2_units):$/;"	kind:function	line:42
+initialize	GoGame.py	/^def initialize(boardsize):$/;"	kind:function	line:6
+input_data	MNIST/fully_connected_feed.py	/^from tensorflow.examples.tutorials.mnist import input_data$/;"	kind:namespace	line:30
+input_data	MNIST/tester.py	/^from tensorflow.examples.tutorials.mnist import input_data$/;"	kind:namespace	line:1
+input_data	tensorGo.py	/^from tensorflow.examples.tutorials.mnist import input_data$/;"	kind:namespace	line:1
+input_data	tester.py	/^from tensorflow.examples.tutorials.mnist import input_data$/;"	kind:namespace	line:1
+keep_prob	MNIST/tester.py	/^keep_prob = tf.placeholder(tf.float32)$/;"	kind:variable	line:70
+loss	MNIST/mnist.py	/^def loss(logits, labels):$/;"	kind:function	line:81
+main	GoGame.py	/^    def main(self):$/;"	kind:member	line:470
+main	MNIST/fully_connected_feed.py	/^def main(_):$/;"	kind:function	line:211
+main	tensorGo.py	/^def main(_):$/;"	kind:function	line:125
+main	tester.py	/^def main(_):$/;"	kind:function	line:86
+makeMove	GoGame.py	/^    def makeMove(self, x, y):$/;"	kind:member	line:527
+math	MNIST/mnist.py	/^import math$/;"	kind:namespace	line:30
+max_pool_2x2	MNIST/tester.py	/^def max_pool_2x2(x):$/;"	kind:function	line:17
+max_pool_2x2	tensorGo.py	/^def max_pool_2x2(x):$/;"	kind:function	line:26
+max_pool_2x2	tester.py	/^def max_pool_2x2(x):$/;"	kind:function	line:20
+mnist	MNIST/fully_connected_feed.py	/^from tensorflow.examples.tutorials.mnist import mnist$/;"	kind:namespace	line:31
+mnist	MNIST/tester.py	/^mnist = input_data.read_data_sets('MNIST_data', one_hot=True)$/;"	kind:variable	line:21
+mnist.py	MNIST/mnist.py	1;"	kind:file	line:1
+os	MNIST/fully_connected_feed.py	/^import os.path$/;"	kind:namespace	line:23
+os	tensorGo.py	/^import os.path$/;"	kind:namespace	line:4
+os	tester.py	/^import os.path$/;"	kind:namespace	line:4
+path	MNIST/fully_connected_feed.py	/^import os.path$/;"	kind:namespace	line:23
+path	tensorGo.py	/^import os.path$/;"	kind:namespace	line:4
+path	tester.py	/^import os.path$/;"	kind:namespace	line:4
+placeholder_inputs	MNIST/fully_connected_feed.py	/^def placeholder_inputs(batch_size):$/;"	kind:function	line:37
+play_go	GoGame.py	/^def play_go(BOARD_LENGTH):$/;"	kind:function	line:688
+print_function	MNIST/fully_connected_feed.py	/^from __future__ import print_function$/;"	kind:namespace	line:19
+print_function	MNIST/mnist.py	/^from __future__ import print_function$/;"	kind:namespace	line:28
+printboard	GoGame.py	/^    def printboard(self, gs):$/;"	kind:member	line:70
+pylint	MNIST/fully_connected_feed.py	/^from six.moves import xrange  # pylint: disable=redefined-builtin$/;"	kind:namespace	line:27
+random	GoGame.py	/^import random$/;"	kind:namespace	line:2
+random	tensorGo.py	/^import random$/;"	kind:namespace	line:9
+randomMove	GoGame.py	/^    def randomMove(self):$/;"	kind:member	line:594
+readable	GoGame.py	/^    def readable(self, gs):$/;"	kind:member	line:164
+redefined	MNIST/fully_connected_feed.py	/^from six.moves import xrange  # pylint: disable=redefined-builtin$/;"	kind:namespace	line:27
+run	GoGame.py	/^    def run(self):    $/;"	kind:member	line:511
+run_training	MNIST/fully_connected_feed.py	/^def run_training():$/;"	kind:function	line:109
+run_training	tensorGo.py	/^def run_training():$/;"	kind:function	line:30
+run_training	tester.py	/^def run_training():$/;"	kind:function	line:23
+selectmove	GoGame.py	/^    def selectmove(self):$/;"	kind:member	line:337
+sess	MNIST/tester.py	/^sess = tf.InteractiveSession()$/;"	kind:variable	line:25
+sys	MNIST/fully_connected_feed.py	/^import sys$/;"	kind:namespace	line:24
+sys	tensorGo.py	/^import sys$/;"	kind:namespace	line:5
+sys	tester.py	/^import sys$/;"	kind:namespace	line:5
+tensorGo.py	tensorGo.py	1;"	kind:file	line:1
+tester.py	MNIST/tester.py	1;"	kind:file	line:1
+tester.py	tester.py	1;"	kind:file	line:1
+tf	MNIST/fully_connected_feed.py	/^import tensorflow as tf$/;"	kind:namespace	line:28
+tf	MNIST/mnist.py	/^import tensorflow as tf$/;"	kind:namespace	line:32
+tf	MNIST/tester.py	/^import tensorflow as tf$/;"	kind:namespace	line:2
+tf	tensorGo.py	/^import tensorflow as tf$/;"	kind:namespace	line:2
+tf	tester.py	/^import tensorflow as tf$/;"	kind:namespace	line:2
+time	GoGame.py	/^import time$/;"	kind:namespace	line:3
+time	MNIST/fully_connected_feed.py	/^import time$/;"	kind:namespace	line:25
+time	tensorGo.py	/^import time$/;"	kind:namespace	line:6
+time	tester.py	/^import time$/;"	kind:namespace	line:6
+train_step	MNIST/tester.py	/^train_step = tf.train.AdamOptimizer(1e-4).minimize(cross_entropy)$/;"	kind:variable	line:91
+training	MNIST/mnist.py	/^def training(loss, learning_rate):$/;"	kind:function	line:95
+turn	GoGame.py	/^    def turn(self):$/;"	kind:member	line:405
+weight_variable	MNIST/tester.py	/^def weight_variable(shape):$/;"	kind:function	line:6
+weight_variable	tensorGo.py	/^def weight_variable(shape):$/;"	kind:function	line:15
+weight_variable	tester.py	/^def weight_variable(shape):$/;"	kind:function	line:9
+x	MNIST/tester.py	/^x = tf.placeholder(tf.float32, shape=[None, 784])$/;"	kind:variable	line:32
+x_image	MNIST/tester.py	/^x_image = tf.reshape(x, [-1,28,28,1])$/;"	kind:variable	line:46
+xrange	MNIST/fully_connected_feed.py	/^from six.moves import xrange  # pylint: disable=redefined-builtin$/;"	kind:namespace	line:27
+y_	MNIST/tester.py	/^y_ = tf.placeholder(tf.float32, shape=[None, 10])$/;"	kind:variable	line:35
+y_conv	MNIST/tester.py	/^y_conv = tf.matmul(h_fc1_drop, W_fc2) + b_fc2$/;"	kind:variable	line:77

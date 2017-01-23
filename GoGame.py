@@ -1,29 +1,31 @@
-import IllegalMove as im
 import random
 import time
+import math
+import IllegalMove as im
 
-## Generates blank game states
+"""Generates blank game states"""
 def initialize(boardsize):
-    gs = []
-    for i in range(0,boardsize):
-        gs.append([])
-        for j in range(0,boardsize):
-            gs[i].append('-')
-    return gs
+    """ The new game state """
+    game_state = []
+    for i in range(0, boardsize):
+        game_state.append([])
+        for j in range(0, boardsize):
+            game_state[i].append('-')
+    return game_state
 
-# A class file for the Go game used to train the AI
+"""A class file for the Go game used to train the AI"""
 class GoGame():
     def __init__(self, boardLength):
         ## The number of spots per side of the board
         ## This code allows for an nxn board
-        self.boardsize = boardLength 
+        self.boardsize = boardLength
 
         ## Value determining whether the player wants to quit or not
         self.gameon = 1
 
         ## 0 or 1, determins whether the current game is ongoing or ended
         self.gameover = 0
-        
+
         ## Lists of groups that have been removed from the board via capture,
         ## held in these varaibles in case, when all captures have been
         ## completed, the board resembles a previous game state and
@@ -31,7 +33,7 @@ class GoGame():
         ## from these varaibles.
         self.restore_o = []
         self.restore_x = []
-
+        self.moves = 0
         self.victor = 2
         ## Either 'o' or 'x', determines who's turn it is
         self.xoro = ''
@@ -50,7 +52,7 @@ class GoGame():
         ## Two-dimensional lists, the higher dimension being groups, the
         ## lower dimension being lists of board positions in a particular
         ## group
-        self.x_groups = []        
+        self.x_groups = []
         self.o_groups = []
         ## Groups of empty positions
         self.non_groups = []
@@ -64,17 +66,16 @@ class GoGame():
         self.o_points = 0
         self.x_points = 0
 
-                    
+
     ## Provides an ascii display of the Go board
     def printboard(self, gs):
-        boardsize = self.boardsize
         for row in gs:
             rowprint = ''
             for element in row:
                 rowprint += element
                 rowprint += ' '
             print(rowprint)
-            
+
     ## Returns a list of the board positions surrounding the
     ## passed group.
     def gperm(self, group):
@@ -96,12 +97,12 @@ class GoGame():
             j = 0
             hit = 0
             while j < boardsize:
-                if [i,j] in group:
+                if [i, j] in group:
                     hit = 1
-                elif (hit == 1) & ([i,j] not in group):
+                elif (hit == 1) & ([i, j] not in group):
                     loss = 1
                 if (hit == 1) & (loss == 1):
-                    permimeter.append([i,j])
+                    permimeter.append([i, j])
                     hit = 0
                     loss = 0
                 j += 1
@@ -113,12 +114,12 @@ class GoGame():
             j = 0
             hit = 0
             while j < boardsize:
-                if [j,i] in group:
+                if [j, i] in group:
                     hit = 1
-                elif (hit == 1) & ([j,i] not in group):
+                elif (hit == 1) & ([j, i] not in group):
                     loss = 1
                 if (hit == 1) & (loss == 1):
-                    permimeter.append([j,i])
+                    permimeter.append([j, i])
                     hit = 0
                     loss = 0
                 j += 1
@@ -130,12 +131,12 @@ class GoGame():
             j = boardsize-1
             hit = 0
             while j >= 0:
-                if [i,j] in group:
+                if [i, j] in group:
                     hit = 1
-                elif (hit == 1) & ([i,j] not in group):
+                elif (hit == 1) & ([i, j] not in group):
                     loss = 1
                 if (hit == 1) & (loss == 1):
-                    permimeter.append([i,j])
+                    permimeter.append([i, j])
                     hit = 0
                     loss = 0
                 j -= 1
@@ -147,18 +148,18 @@ class GoGame():
             j = boardsize-1
             hit = 0
             while j >= 0:
-                if [j,i] in group:
+                if [j, i] in group:
                     hit = 1
-                elif (hit == 1) & ([j,i] not in group):
+                elif (hit == 1) & ([j, i] not in group):
                     loss = 1
                 if (hit == 1) & (loss == 1):
-                    permimeter.append([j,i])
+                    permimeter.append([j, i])
                     hit = 0
                     loss = 0
                 j -= 1
             i += 1
         return permimeter
-                                        
+
     ## Returns a string that describes the game state
     def readable(self, gs):
         readthis = ''
@@ -168,33 +169,32 @@ class GoGame():
                 readthis += element
         readthis += '>>'
         return readthis
-                
+
     ## Counts the territory captured by each player
     def count(self):
-       
         ## Creates a list of groups (non_groups) of empty positions.
-        for i in range(0,self.boardsize):
-            for j in range(0,self.boardsize):
+        for i in range(0, self.boardsize):
+            for j in range(0, self.boardsize):
                 if self.gsc[j][i] == '-':
                     new = 1
                     for group in self.non_groups:
-                        if [i,j] in self.gperm(group):
-                            group.append([i,j])
+                        if [i, j] in self.gperm(group):
+                            group.append([i, j])
                             new = 0
                     if new == 1:
-                        self.non_groups.append([[i,j]])
+                        self.non_groups.append([[i, j]])
         self.concat('-')
-                            
+
         self.o_points = 0
         self.x_points = 0
-    
+
         ## Gives a point to the each player for every pebble they have
         ## on the board.
         for group in self.o_groups:
             self.o_points += len(group)
         for group in self.x_groups:
             self.x_points += len(group)
-            
+
         ## The permimeter of these empty positions is here considered,
         ## and if every position in the permimeter of a non_group is
         ## one player or the other, that player gains a number of points
@@ -207,7 +207,7 @@ class GoGame():
                     no = 1
             if no == 0:
                 self.o_points += len(group)
-                    
+
         for group in self.non_groups:
             no = 0
             for element in self.gperm(group):
@@ -215,7 +215,7 @@ class GoGame():
                     no = 1
             if no == 0:
                 self.x_points += len(group)
-                    
+
     ## Checks for capture, and removes the captured pieces from the board
     def capture(self, xoro):
         global edited
@@ -225,7 +225,7 @@ class GoGame():
         else:
             groups = self.o_groups
             otherplayer = 'x'
-        
+
         ## Checks to see, for each group of a particular player,
         ## whether any of the board positions in the
         ## perimeter around that group are held by the other player.
@@ -246,7 +246,7 @@ class GoGame():
                 else:
                     self.restore_o.append(group)
                 groups.remove(group)
-                        
+
         # Sets gsf given the new captures
         self.gsf = initialize(self.boardsize)
         for group in self.o_groups:
@@ -255,7 +255,7 @@ class GoGame():
         for group in self.x_groups:
             for point in group:
                 self.gsf[point[1]][point[0]] = 'x'
-                    
+
     ## Checks to see if the new game state, created by the most recent
     ## move, returns the board to a previous state.  If not, then
     ## gsc is set as this new state, and gsp is set as what gsc was, and
@@ -272,7 +272,7 @@ class GoGame():
             return 1
         else:
             return 0
-            
+
     ## Checks if any groups contain the same point;
     ## if so, joins them into one group
     def concat(self, xoro):
@@ -332,7 +332,7 @@ class GoGame():
                 new = 0
         if new == 1:
             groups.append([xy])
-                    
+
     ## Lets the player select a move.
     def selectmove(self):
         hold = 1
@@ -350,32 +350,58 @@ class GoGame():
                     try:
                         x = int(input('x: '))
                     except ValueError:
-                        error = 1
+                        minihold = 1
+                        raise im.IllegalMove("Illegal x position")
                     try:
                         y = int(input('y: '))
                     except ValueError:
-                        error = 1
-                    if error == 1:
                         minihold = 1
-                        print('invalid')
+                        raise im.IllegalMove("Illegal y position")
                 else:
+                    raise im.IllegalMove("Not l or a")
                     print('invalid')
             ## Ensures that the raw_input is on the board
             if (x >= self.boardsize) | (x < 0) | (y >= self.boardsize) | (y < 0):
                 print('invalid')
+                raise im.IllegalMove("Illegal x or y position")
             elif self.gsc[y][x] != '-':
                 print('invalid')
+                raise im.IllegalMoveAlreadyMade("Move already made")
             else:
                 hold = 0
         ## Places the piece on the 'future' board, the board
         ## used to test if a move is valid
         if self.xoro == 'o':
             self.gsf[y][x] = 'o'
+            self.xoro = 'x'
         else:
             self.gsf[y][x] = 'x'
-            
-        return [x,y]
-    
+            self.xoro = 'o'
+        return [x, y]
+
+        ## Lets the player select a move.
+    def checkmove(self, x, y):
+        hold = 1
+        while hold == 1:
+            ## Ensures that the raw_input is on the board
+            if (x >= self.boardsize) | (x < 0) | (y >= self.boardsize) | (y < 0):
+                #print('invalid')
+                raise im.IllegalMove("Illegal x or y position")
+            elif self.gsc[y][x] != '-':
+                #print('invalid')
+                raise im.IllegalMove("Move already made")
+            else:
+                hold = 0
+        ## Places the piece on the 'future' board, the board
+        ## used to test if a move is valid
+        if self.xoro == 'o':
+            self.gsf[y][x] = 'o'
+            self.xoro = 'x'
+        else:
+            self.gsf[y][x] = 'x'
+            self.xoro = 'o'
+        return [x, y]
+
     ## The 'turn,' in which a player makes a move,
     ## the captures caused by that piece are made,
     ## the validity of the move is checked, and
@@ -392,7 +418,7 @@ class GoGame():
             ## that piece.
             xy = self.selectmove()
             if xy == 'pass':
-                if xoro == 'o':
+                if self.xoro == 'o':
                     self.player1_pass = 1
                 else:
                     self.player2_pass = 1
@@ -427,7 +453,7 @@ class GoGame():
                         ## Checks to see if the move, given all the
                         ## captures it causes, would return the board
                         ## to a previous game state.
-                if (self.goodmove() == 1):
+                if self.goodmove() == 1:
                     hold = 0
                 ## If the move is invalid, the captured groups need
                 ## to be returned to the board, so we use
@@ -438,37 +464,33 @@ class GoGame():
                         self.o_groups.append(group)
                     for group in self.restore_x:
                         self.x_groups.append(group)
-                    print ("Throw Exception")
-                    raise im.IllegalMove("invalid move - that returns to board to a previous state")
+                    print("Throw Exception")
+                    raise im.IllegalMove(
+                        "invalid move - that returns to board to a previous state")
         if (self.player1_pass == 1) & (self.player2_pass == 1):
             self.gameover = 1
             self.endGame()
-                                            
+
     ## Called to start a game
     def main(self):
         ## Gives players turns until the end of the game
         ## (that is, until both players pass, one after
         ## the other)
         while self.gameover != 1:
-            
             ## Set it as o-player's turn
             self.xoro = 'o'
             self.notxoro = 'x'
             print()
             self.printboard(self.gsc)
-            
             self.turn()
             if self.gameover == 1:
                 break
-                
             ## Sets it as x-player's turn
             self.xoro = 'x'
             self.notxoro = 'o'
             print()
             self.printboard(self.gsc)
-            
             self.turn()
-            
         ## Counts the score of both players
         self.count()
         print()
@@ -476,8 +498,8 @@ class GoGame():
         print()
         self.printboard(self.gsc)
         print()
-        print('o points: ',str(self.o_points))
-        print('x points: ',str(self.x_points))
+        print('o points: ', str(self.o_points))
+        print('x points: ', str(self.x_points))
         ## Determines the winner
         if self.o_points > self.x_points:
             print('o wins')
@@ -486,7 +508,7 @@ class GoGame():
         else:
             print('tie')
 
-    def run(self):    
+    def run(self):
         ## This while loop will start new games for as
         ## long as the user choses to.
         while self.gameon == 1:
@@ -511,10 +533,10 @@ class GoGame():
             ## is given the option of whether to place
             ## a piece or to pass, and where to place
             ## that piece.
-            if (x == -1 | y == -1):
+            if x == -1 or y == -1:
                 xy = 'pass'
             else:
-                xy = [x, y]
+                xy = self.checkmove(x, y)
             if xy == 'pass':
                 if self.xoro == 'o':
                     self.player1_pass = 1
@@ -551,8 +573,9 @@ class GoGame():
                         ## Checks to see if the move, given all the
                         ## captures it causes, would return the board
                         ## to a previous game state.
-                    if (self.goodmove() == 1):
+                    if self.goodmove() == 1:
                         hold = 0
+                        self.moves += 1
                         ## If the move is invalid, the captured groups need
                         ## to be returned to the board, so we use
                         ## the groups stored in the restore lists to
@@ -563,29 +586,28 @@ class GoGame():
                             self.o_groups.append(group)
                         for group in self.restore_x:
                             self.x_groups.append(group)
-                        raise im.IllegalKo('invalid move - that returns to board to a previous state')
+                        raise im.IllegalKo(
+                            'invalid move - that returns to board to a previous state')
         if (self.player1_pass == 1) & (self.player2_pass == 1):
-            gameover = 1
             self.endGame()
 
-            
     def randomMove(self):
-        
         hold = 1
         while hold == 1:
             ## By calling selectmove(), the player
             ## is given the option of whether to place
             ## a piece or to pass, and where to place
             ## that piece.
-            x = random.randint(0,self.boardsize-1)
-            y = random.randint(0,self.boardsize-1)
+            x = random.randint(0, self.boardsize-1)
+            y = random.randint(0, self.boardsize-1)
             #print("x,y")
             #print(x)
             #print(y)
-            if (random.random() > 0.9 or (self.player1_pass == 1 and random.random() > .4)):
+            self.moves += 1
+            if random.random() > 0.9 or (self.player1_pass == 1 and random.random() > .4):
                 xy = 'pass'
             else:
-                xy = [x, y]
+                xy = self.checkmove(x, y)
             if xy == 'pass':
                 if self.xoro == 'o':
                     self.player1_pass = 1
@@ -619,11 +641,10 @@ class GoGame():
                         edited = 0
                     else:
                         edited = 0
-                    
                     ## Checks to see if the move, given all the
                     ## captures it causes, would return the board
                     ## to a previous game state.
-                    if (self.goodmove() == 1):
+                    if self.goodmove() == 1:
                         hold = 0
                     ## If the move is invalid, the captured groups need
                     ## to be returned to the board, so we use
@@ -634,7 +655,8 @@ class GoGame():
                             self.o_groups.append(group)
                         for group in self.restore_x:
                             self.x_groups.append(group)
-                        raise im.IllegalKo('invalid move - that returns to board to a previous state')
+                        raise im.IllegalKo(
+                            'invalid move - that returns to board to a previous state')
         if (self.player1_pass == 1) & (self.player2_pass == 1):
             self.endGame()
 
@@ -647,8 +669,8 @@ class GoGame():
         print()
         self.printboard(self.gsc)
         print()
-        print('o points: ',str(self.o_points))
-        print('x points: ',str(self.x_points))
+        print('o points: ', str(self.o_points))
+        print('x points: ', str(self.x_points))
         ## Determines the winner
         if self.o_points > self.x_points:
             print('o wins')
@@ -668,41 +690,47 @@ def play_go(BOARD_LENGTH):
     game = GoGame(BOARD_LENGTH)
     count = 0
     move = 0
-    while(game.gameover == 0):
-        game.xoro = "x"
-        game.notxoro = "o"
+    game.xoro = "x"
+    while game.gameover == 0:
         while True:
+            moves = game.moves / 10000
             try:
+               # print("Try "+game.xoro)
                 x = random.randint(0, BOARD_LENGTH-1)
                 y = random.randint(0, BOARD_LENGTH-1)
-                if (random.random() > 0.995):
+                if random.random() < moves:
                     x = -1
                     y = -1
                 game.makeMove(x, y)
+                #game.turn()
                 break
-            except im.IllegalKo as ik:
-                count+=1
+            except im.IllegalMove as ik:
+                count += 1
                 #print ("Caught exception "+str(count)+" at move "+str(move))
                 continue
-        move+=1
-        game.printboard(game.gsc)
-        if (game.gameover == 1):
+        move += 1
+        #game.printboard(game.gsc)
+        if game.gameover == 1:
             break
-        game.xoro = "o"
-        game.notxoro = "x"
+
         while True:
             try:
                 game.randomMove()
                 break
-            except im.IllegalKo as ik:
-                count+=1
+            except im.IllegalMove as ik:
+                count += 1
                 #print ("Caught exception "+str(count)+" at move "+str(move))
                 continue
-        move+=1
-        game.printboard(game.gsc)
-
+        move += 1
+        #game.printboard(game.gsc)
+        #print() 
+        if move >= math.pow(BOARD_LENGTH, 2):
+            print("Move Max = "+str(move))
+            game.endGame()
         #time.sleep(0.01)
     t1 = time.clock() # End Time
     timedur = t1 - t0 # Duration
     print("Moves "+str(move)+" Duration "+str(timedur))
     time.sleep(1)
+
+play_go(19)
