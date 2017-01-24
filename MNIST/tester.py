@@ -1,6 +1,6 @@
 from tensorflow.examples.tutorials.mnist import input_data
 import tensorflow as tf
-
+import time
 
 # FUNCTIONS
 def weight_variable(shape):
@@ -23,7 +23,7 @@ mnist = input_data.read_data_sets('MNIST_data', one_hot=True)
 # Interactive Session for interleving operations which build a computation
 # graph with those that run the graph.
 sess = tf.InteractiveSession()
-
+t0 = time.clock()
 # Create nodes for the input images and target output classes
 
 # 2D tensor of floating point numbers
@@ -92,15 +92,19 @@ train_step = tf.train.AdamOptimizer(1e-4).minimize(cross_entropy)
 correct_prediction = tf.equal(tf.argmax(y_conv,1), tf.argmax(y_,1))
 accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
 sess.run(tf.global_variables_initializer())
-for i in range(200000):
+for i in range(10000):
     batch = mnist.train.next_batch(50)
     if i%100 == 0:
         train_accuracy = accuracy.eval(feed_dict={x:batch[0], y_: batch[1], keep_prob: 1.0})
         print("step %d, training accuracy %g"%(i, train_accuracy))
+        if train_accuracy > 0.99:
+            print(str(i)+" steps")
+            break
     train_step.run(feed_dict={x: batch[0], y_: batch[1], keep_prob: 0.5})
-\
+t1 = time.clock()
+duration = t1 - t0
 print("test accuracy %g"%accuracy.eval(feed_dict={x: mnist.test.images, y_: mnist.test.labels, keep_prob: 1.0}))
-
+print("Time Taken "+str(duration)+" seconds")
 # Training
 #train_step = tf.train.GradientDescentOptimizer(0.5).minimize(cross_entropy)
 
