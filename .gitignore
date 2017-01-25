@@ -30,6 +30,17 @@
 
 # Tensorflow binary files
 *.tfrecords
+*.index
+*.meta
+*.data*
+
+# Compressed Data
+*.tar
+*.gz
+
+# Standard Go files
+*.sgf
 
 # Large Data directories
 Games/
+TrainingData/
