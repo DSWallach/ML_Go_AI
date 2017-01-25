@@ -44,3 +44,4 @@
 # Large Data directories
 Games/
 TrainingData/
+__pycache__/
