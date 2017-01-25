@@ -27,7 +27,8 @@ ProtobufRead.py	Examples/ProtobufRead.py	1;"	kind:file	line:1
 ProtobufWrite.py	Examples/ProtobufWrite.py	1;"	kind:file	line:1
 ReadQ.1.py	Examples/ReadQ.1.py	1;"	kind:file	line:1
 ReadQ.py	Examples/ReadQ.py	1;"	kind:file	line:1
-TrainingGame	TrainingGame.py	/^class TrainingGame():$/;"	kind:class	line:6
+TG	TrainingGame.py	/^TG = TrainingGame("TrainingData\/game0.sgf")$/;"	kind:variable	line:82
+TrainingGame	TrainingGame.py	/^class TrainingGame():$/;"	kind:class	line:49
 TrainingGame.py	TrainingGame.py	1;"	kind:file	line:1
 W	Examples/MNIST/tester.py	/^W = tf.Variable(tf.zeros([784, 10]))$/;"	kind:variable	line:38
 W_conv1	Examples/MNIST/tester.py	/^W_conv1 = weight_variable([5, 5, 1, 32])$/;"	kind:variable	line:44
@@ -39,7 +40,7 @@ __init__	GoGame.py	/^    def __init__(self, boardLength):$/;"	kind:member	line:1
 __init__	IllegalMove.py	/^    def __init__(self, *args, **kwargs):$/;"	kind:member	line:20
 __init__	IllegalMove.py	/^    def __init__(self, *args, **kwargs):$/;"	kind:member	line:32
 __init__	IllegalMove.py	/^    def __init__(self, *args, **kwargs):$/;"	kind:member	line:9
-__init__	TrainingGame.py	/^    def __init__(self, filename):$/;"	kind:member	line:7
+__init__	TrainingGame.py	/^    def __init__(self, filename):$/;"	kind:member	line:55
 absolute_import	Examples/MNIST/fully_connected_feed.py	/^from __future__ import absolute_import$/;"	kind:namespace	line:17
 absolute_import	Examples/MNIST/mnist.py	/^from __future__ import absolute_import$/;"	kind:namespace	line:26
 accuracy	Examples/MNIST/tester.py	/^accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))$/;"	kind:variable	line:93
@@ -124,6 +125,7 @@ input_data	tensorGo.py	/^from tensorflow.examples.tutorials.mnist import input_d
 input_pipeline	FileReader.py	/^def input_pipeline(filenames, batch_size, read_threads, num_epochs=None):$/;"	kind:function	line:25
 int64_list	Examples/ProtobufWrite.py	/^                int64_list=tf.train.Int64List(value=[label])),$/;"	kind:variable	line:47
 int64_list	Examples/ProtobufWrite.py	/^                int64_list=tf.train.Int64List(value=features)),$/;"	kind:variable	line:49
+itemgetter	TrainingGame.py	/^from operator import itemgetter$/;"	kind:namespace	line:6
 iter_	Examples/Placeholder.py	/^iter_ = data_iterator()$/;"	kind:variable	line:54
 keep_prob	Examples/MNIST/tester.py	/^keep_prob = tf.placeholder(tf.float32)$/;"	kind:variable	line:70
 label	Examples/ProtobufRead.py	/^    label = example.features.feature['label'].int64_list.value[0]$/;"	kind:variable	line:10
@@ -171,6 +173,7 @@ pylint	Examples/MNIST/fully_connected_feed.py	/^from six.moves import xrange  # 
 random	GoGame.py	/^import random$/;"	kind:namespace	line:1
 random	tensorGo.py	/^import random$/;"	kind:namespace	line:10
 randomMove	GoGame.py	/^    def randomMove(self):$/;"	kind:member	line:594
+re	TrainingGame.py	/^import re$/;"	kind:namespace	line:5
 read_and_decode_single_example	Examples/ReadQ.1.py	/^def read_and_decode_single_example(filename):$/;"	kind:function	line:3
 read_and_decode_single_example	Examples/ReadQ.py	/^def read_and_decode_single_example(filename):$/;"	kind:function	line:3
 read_my_file_format	FileReader.py	/^def read_my_file_format(filename_queue):$/;"	kind:function	line:15
@@ -188,6 +191,7 @@ sess	Examples/MNIST/tester.py	/^sess = tf.InteractiveSession()$/;"	kind:variable
 sess	Examples/Placeholder.py	/^sess = tf.Session()$/;"	kind:variable	line:20
 sess	Examples/ReadQ.1.py	/^sess = tf.Session()$/;"	kind:variable	line:51
 sess	Examples/ReadQ.py	/^sess = tf.Session()$/;"	kind:variable	line:32
+sgf_dict	TrainingGame.py	/^sgf_dict = dict([$/;"	kind:variable	line:9
 some_decoder	FileReader.py	/^def some_decoder(record_string):$/;"	kind:function	line:6
 some_processing	FileReader.py	/^def some_processing(example):$/;"	kind:function	line:10
 start_threads	Examples/CustomRunner.py	/^    def start_threads(self, sess, n_threads=1):$/;"	kind:member	line:63

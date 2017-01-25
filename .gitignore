@@ -38,10 +38,7 @@
 *.tar
 *.gz
 
-# Standard Go files
-*.sgf
-
 # Large Data directories
-Games/
 TrainingData/
 __pycache__/
+,vscode/
