@@ -10,3 +10,7 @@ The games used to train the AI were public domain games retrieved from
 http://homepages.cwi.nl/~aeb/go/games/index.html
 and
 https://badukmovies.com/pro_games
+
+# Parser for sgf file found here
+http://gotools.sourceforge.net/sgflib/
+
