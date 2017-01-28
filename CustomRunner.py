@@ -1,14 +1,42 @@
 import tensorflow as tf
 import time
 import threading
-from skdata.mnist.view import OfficialVectorClassification
 import numpy as np
+from tqdm import tqdm
+import random
 
 # load data entirely into memory 🙁
-data = OfficialVectorClassification()
-trIdx = data.sel_idxs[:]
-features = data.all_vectors[trIdx]
-labels = data.all_labels[trIdx]
+name_list = list()
+print("Populating name_list")
+for i in tqdm(range(25000)):
+    name_list.append("/home/david/Documents/gameFiles/CSV-19x19/data"+str(i)+".csv")
+
+filename_queue = tf.train.string_input_producer(name_list, shuffle=True)
+
+reader = tf.TextLineReader()
+key, value = reader.read(filename_queue)
+
+# Default values, in case of empty columns. Also specifies the type of the
+# decoded result.
+
+print("Initialize columns")
+columns = [[0] for x in tqdm(range(723))]
+#print(columns)
+print("Initialize Features")
+features = [0 for x in tqdm(range(361))]
+#print(features)
+columns = tf.decode_csv(value, record_defaults=columns)
+#print(columns)
+print("Populating features")
+features = [columns[x] for x in tqdm(range(361))]
+
+print("Populating solutions")
+labels = [columns[x] for x in tqdm(range(362, 723))]
+#print(solutions)
+
+
+
+trIdx = columns[362]
 
 batch_size = 128
 def data_iterator():
@@ -17,12 +45,12 @@ def data_iterator():
     while True:
         # shuffle labels and features
         idxs = np.arange(0, len(features))
-        np.random.shuffle(idxs)
+        random.shuffle(idxs)
         shuf_features = features[idxs]
         shuf_labels = labels[idxs]
         for batch_idx in range(0, len(features), batch_size):
             images_batch = shuf_features[batch_idx:batch_idx + batch_size] / 255.
-            images_batch = images_batch.astype("float32")
+            images_batch = images_batch.astype("int32")
             labels_batch = shuf_labels[batch_idx:batch_idx + batch_size]
             yield images_batch, labels_batch
 
@@ -69,30 +97,35 @@ class CustomRunner(object):
             t.start()
             threads.append(t)
         return threads
+try:
+    # Doing anything with data on the CPU is generally a good idea.
+    with tf.device("/cpu:0"):
+        custom_runner = CustomRunner()
+        images_batch, labels_batch = custom_runner.get_inputs()
 
-# Doing anything with data on the CPU is generally a good idea.
-with tf.device("/cpu:0"):
-    custom_runner = CustomRunner()
-    images_batch, labels_batch = custom_runner.get_inputs()
+    # simple model
+    w = tf.get_variable("w1", [28*28, 10])
+    y_pred = tf.matmul(images_batch, w)
+    loss = tf.nn.sparse_softmax_cross_entropy_with_logits(y_pred, labels_batch)
 
-# simple model
-w = tf.get_variable("w1", [28*28, 10])
-y_pred = tf.matmul(images_batch, w)
-loss = tf.nn.sparse_softmax_cross_entropy_with_logits(y_pred, labels_batch)
+    # for monitoring
+    loss_mean = tf.reduce_mean(loss)
+    train_op = tf.train.AdamOptimizer().minimize(loss)
 
-# for monitoring
-loss_mean = tf.reduce_mean(loss)
-train_op = tf.train.AdamOptimizer().minimize(loss)
+    sess = tf.Session(config=tf.ConfigProto(intra_op_parallelism_threads=8))
+    init = tf.global_variables_initializer()
+    sess.run(init)
 
-sess = tf.Session(config=tf.ConfigProto(intra_op_parallelism_threads=8))
-init = tf.initialize_all_variables()
-sess.run(init)
-
-# start the tensorflow QueueRunner's
-tf.train.start_queue_runners(sess=sess)
-# start our custom queue runner's threads
-custom_runner.start_threads(sess)
-
-while True:
-    _, loss_val = sess.run([train_op, loss_mean])
-    print (loss_val)
+    # start the tensorflow QueueRunner's
+    tf.train.start_queue_runners(sess=sess)
+    # start our custom queue runner's threads
+    custom_runner.start_threads(sess)
+    count = 0
+    while True:
+        _, loss_val = sess.run([train_op, loss_mean])
+        if (count % 100 == 0):
+            print(loss_val)
+        count += 1
+except TypeError:
+    print("TE")
+    quit()

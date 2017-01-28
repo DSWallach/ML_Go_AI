@@ -9,7 +9,32 @@ import IllegalMove as im
 import numpy as np
 import random
 
-BOARD_LENGTH = 9
+print("Populating name_list")
+for i in tqdm(range(25000)):
+    name_list.append("/home/david/Documents/gameFiles/CSV-19x19/data"+str(i)+".csv")
+
+
+filename_queue = tf.train.string_input_producer(name_list)
+
+reader = tf.TextLineReader()
+key, value = reader.read(filename_queue)
+
+# Default values, in case of empty columns. Also specifies the type of the
+# decoded result.
+
+print("Initialize columns")
+columns = [[0] for x in tqdm(range(723))]
+#print(columns)
+print("Initialize Features")
+features = [0 for x in tqdm(range(361))]
+#print(features)
+columns = tf.decode_csv(value, record_defaults=columns)
+#print(columns)
+print("Populating solutions")
+solutions = [columns[x] for x in tqdm(range(362, 723))]
+#print(solutions)
+
+BOARD_LENGTH = 19
 BOARD_SIZE = BOARD_LENGTH * BOARD_LENGTH
 
 # FUNCTIONS
@@ -56,10 +81,10 @@ def run_training():
 
     else:
         # Model parameters
-        ### W = tf.Variable(tf.zeros([BOARD_LENGTH, BOARD_LENGTH]))
-        ### b = tf.Variable(tf.zeros([BOARD_LENGTH]))
-        W = tf.Variable(tf.zeros([784, 10]))
-        b = tf.Variable(tf.zeros([10]))
+        W = tf.Variable(tf.zeros([BOARD_LENGTH * BOARD_LENGTH, 0]))
+        b = tf.Variable(tf.zeros([BOARD_LENGTH * BOARD_LENGTH, 0]))
+        #W = tf.Variable(tf.zeros([784, 10]))
+        #b = tf.Variable(tf.zeros([10]))
 
         # Add Variables to the collection for saving
         tf.add_to_collection(FLAGS.graph_name+'-vars', W)
@@ -71,12 +96,12 @@ def run_training():
     # Create nodes for the input images and target output classes    
     # 2D tensor of floating point numbers
     # Input layer
-    ### x = tf.placeholder(tf.float32, shape=[BOARD_LENGTH, BOARD_LENGTH])
-    x = tf.placeholder(tf.float32, shape=[None, 784])
+    x = tf.placeholder(tf.float32, shape=[BOARD_LENGTH, BOARD_LENGTH])
+    #x = tf.placeholder(tf.float32, shape=[None, 784])
 
     # Output layer
-    ### y_ = tf.placeholder(tf.float32, shape=[BOARD_LENGTH, BOARD_LENGTH])
-    y_ = tf.placeholder(tf.float32, shape=[None, 10])
+    y_ = tf.placeholder(tf.float32, shape=[BOARD_LENGTH, BOARD_LENGTH])
+    #y_ = tf.placeholder(tf.float32, shape=[None, 10])
 
     # Initialize Variables
     sess.run(tf.global_variables_initializer())

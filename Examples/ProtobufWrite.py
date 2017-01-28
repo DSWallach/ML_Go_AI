@@ -4,16 +4,18 @@ from tqdm import tqdm
 import numpy as np
 import array
 import tensorflow as tf
+import random
 
-print("data")
 data = OfficialVectorClassification()
+
+print("data ",data)
 print("Training index?")
 trIdx = data.sel_idxs[:]
 
 # Must randomly shuffle the data or can't make use
 # of tensorflow's great out of core shuffling ?
 
-np.random.shuffle(trIdx)
+random.shuffle(trIdx)
 
 writer = tf.python_io.TFRecordWriter("mnist.tfrecords")
 print("Iterate over each example")
