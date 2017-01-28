@@ -57,7 +57,9 @@ class SGFSerializer():
                                     else:
                                         loser = 'W'
                                 except KeyError:
-                                    sys.stderr.write("Key error for 'RE' in file"+str(index))
+                                    sys.stderr.write("Key error for 'RE' in file "+str(index)+"\n")
+                                    os.remove(filename)
+                                    break;
                         elif node.properties["SZ"] != [str(self.boardSize)]:
                             os.remove(filename)
                             break;
@@ -90,7 +92,7 @@ class SGFSerializer():
                                 game_state_lose[row][col] = -1
                                 game_state_win[row][col] = -1
                         except KeyError:
-                            sys.stderr.write("Key error for B or W in file"+str(index))
+                            sys.stderr.write("Key error for B or W in file "+str(index)+"\n")
                             break;
             except IndexError:
                 return 
