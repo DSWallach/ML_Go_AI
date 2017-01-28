@@ -1,0 +1,5 @@
+To Do:
+    LongTerm:
+        Turn SGFserializer into a Reader
+    ShortTerm:
+        Train something

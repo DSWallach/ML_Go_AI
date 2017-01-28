@@ -4,185 +4,50 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
-AddMulMixin	typelib.py	/^class AddMulMixin:$/;"	kind:class	line:117
 BOARD_LENGTH	tensorGo.py	/^BOARD_LENGTH = 9$/;"	kind:variable	line:12
 BOARD_SIZE	tensorGo.py	/^BOARD_SIZE = BOARD_LENGTH * BOARD_LENGTH$/;"	kind:variable	line:13
-Collection	sgflib.py	/^class Collection(List):$/;"	kind:class	line:309
-Complex	typelib.py	/^class Complex(Number):$/;"	kind:class	line:332
-Container	typelib.py	/^class Container(SuperType):$/;"	kind:class	line:359
-Cursor	sgflib.py	/^class Cursor:$/;"	kind:class	line:526
 CustomRunner	Examples/CustomRunner.py	/^class CustomRunner(object):$/;"	kind:class	line:29
 CustomRunner.py	Examples/CustomRunner.py	1;"	kind:file	line:1
-Dictionary	sgflib.py	/^from typelib import List, Dictionary$/;"	kind:namespace	line:66
-Dictionary	typelib.py	/^class Dictionary(Mapping, MutableMixin):$/;"	kind:class	line:530
-DirectAccessError	sgflib.py	/^class DirectAccessError(Exception):$/;"	kind:class	line:93
-DuplicatePropertyError	sgflib.py	/^class DuplicatePropertyError(Exception):$/;"	kind:class	line:98
-EndOfDataParseError	sgflib.py	/^class EndOfDataParseError(Exception):$/;"	kind:class	line:71
 FLAGS	Examples/MNIST/fully_connected_feed.py	/^FLAGS = None$/;"	kind:variable	line:34
-FileReader.py	FileReader.py	1;"	kind:file	line:1
-Float	typelib.py	/^class Float(Number):$/;"	kind:class	line:318
-GameState	GameState.py	/^class GameState():$/;"	kind:class	line:15
-GameState.py	GameState.py	1;"	kind:file	line:1
-GameTree	sgflib.py	/^class GameTree(List):$/;"	kind:class	line:326
-GameTreeEndError	sgflib.py	/^class GameTreeEndError(Exception):$/;"	kind:class	line:110
-GameTreeNavigationError	sgflib.py	/^class GameTreeNavigationError(Exception):$/;"	kind:class	line:105
-GameTreeParseError	sgflib.py	/^class GameTreeParseError(Exception):$/;"	kind:class	line:76
 GoGame	GoGame.py	/^class GoGame():$/;"	kind:class	line:17
 GoGame.py	GoGame.py	1;"	kind:file	line:1
 IMAGE_PIXELS	Examples/MNIST/mnist.py	/^IMAGE_PIXELS = IMAGE_SIZE * IMAGE_SIZE$/;"	kind:variable	line:39
 IMAGE_SIZE	Examples/MNIST/mnist.py	/^IMAGE_SIZE = 28$/;"	kind:variable	line:38
-INT_TYPE	sgflib.py	/^INT_TYPE = type(0)					# constant$/;"	kind:variable	line:116
 IllegalKo	IllegalMove.py	/^class IllegalKo(IllegalMove):$/;"	kind:class	line:12
 IllegalMove	IllegalMove.py	/^class IllegalMove(Exception):$/;"	kind:class	line:1
 IllegalMove.py	IllegalMove.py	1;"	kind:file	line:1
 IllegalMoveAlreadyMade	IllegalMove.py	/^class IllegalMoveAlreadyMade(IllegalMove):$/;"	kind:class	line:23
-Integer	typelib.py	/^class Integer(Number):$/;"	kind:class	line:238
-KDTree	GameState.py	/^from scipy.spatial import KDTree$/;"	kind:namespace	line:2
-List	sgflib.py	/^from typelib import List, Dictionary$/;"	kind:namespace	line:66
-List	typelib.py	/^class List(MutableSequence):$/;"	kind:class	line:476
-Long	typelib.py	/^class Long(Integer):$/;"	kind:class	line:304
-MAX_LINE_LEN	sgflib.py	/^MAX_LINE_LEN = 76						# constant; for line breaks$/;"	kind:variable	line:119
-Mapping	typelib.py	/^class Mapping(Container):$/;"	kind:class	line:491
-ModMixin	typelib.py	/^class ModMixin:$/;"	kind:class	line:150
-MutableMixin	typelib.py	/^class MutableMixin:$/;"	kind:class	line:138
-MutableSequence	typelib.py	/^class MutableSequence(Sequence, MutableMixin):$/;"	kind:class	line:411
 NUM_CLASSES	Examples/MNIST/mnist.py	/^NUM_CLASSES = 10$/;"	kind:variable	line:35
-Node	sgflib.py	/^class Node(Dictionary):$/;"	kind:class	line:399
-NodePropertyParseError	sgflib.py	/^class NodePropertyParseError(Exception):$/;"	kind:class	line:81
-Number	typelib.py	/^class Number(SuperType, AddMulMixin, ModMixin):$/;"	kind:class	line:162
 OfficialVectorClassification	Examples/CustomRunner.py	/^from skdata.mnist.view import OfficialVectorClassification$/;"	kind:namespace	line:4
 OfficialVectorClassification	Examples/Placeholder.py	/^from skdata.mnist.view import OfficialVectorClassification$/;"	kind:namespace	line:27
 OfficialVectorClassification	Examples/ProtobufWrite.py	/^from skdata.mnist.view import OfficialVectorClassification$/;"	kind:namespace	line:2
 Placeholder.py	Examples/Placeholder.py	1;"	kind:file	line:1
-Property	sgflib.py	/^class Property(List):$/;"	kind:class	line:499
-PropertyValueParseError	sgflib.py	/^class PropertyValueParseError(Exception):$/;"	kind:class	line:86
 ProtobufRead.py	Examples/ProtobufRead.py	1;"	kind:file	line:1
 ProtobufWrite.py	Examples/ProtobufWrite.py	1;"	kind:file	line:1
 ReadQ.1.py	Examples/ReadQ.1.py	1;"	kind:file	line:1
 ReadQ.py	Examples/ReadQ.py	1;"	kind:file	line:1
-RootNodeSGFParser	sgflib.py	/^class RootNodeSGFParser(SGFParser):$/;"	kind:class	line:297
-SGFParser	sgflib.py	/^class SGFParser:$/;"	kind:class	line:122
-Sequence	typelib.py	/^class Sequence(Container, AddMulMixin):$/;"	kind:class	line:375
-String	typelib.py	/^class String(Sequence, ModMixin):$/;"	kind:class	line:383
-SuperType	typelib.py	/^class SuperType:$/;"	kind:class	line:72
-TG	TrainingGame.py	/^TG = TrainingGame("Games\/game0.sgf")$/;"	kind:variable	line:94
-TYPE	typelib.py	/^	TYPE = type("")$/;"	kind:variable	line:386
-TYPE	typelib.py	/^	TYPE = type(())$/;"	kind:variable	line:400
-TYPE	typelib.py	/^	TYPE = type(0+0j)$/;"	kind:variable	line:335
-TYPE	typelib.py	/^	TYPE = type(0.1)$/;"	kind:variable	line:321
-TYPE	typelib.py	/^	TYPE = type(1)$/;"	kind:variable	line:241
-TYPE	typelib.py	/^	TYPE = type([])$/;"	kind:variable	line:480
-TYPE	typelib.py	/^	TYPE = type(int)$/;"	kind:variable	line:307
-TYPE	typelib.py	/^	TYPE = type({})$/;"	kind:variable	line:535
-TrainingGame	TrainingGame.py	/^class TrainingGame():$/;"	kind:class	line:51
-TrainingGame.py	TrainingGame.py	1;"	kind:file	line:1
-Tuple	typelib.py	/^class Tuple(Sequence):$/;"	kind:class	line:397
+SGFSerializer	SGFSerializer.py	/^class SGFSerializer(sgf.Collection):$/;"	kind:class	line:7
+SGFSerializer.py	SGFSerializer.py	1;"	kind:file	line:1
 W	Examples/MNIST/tester.py	/^W = tf.Variable(tf.zeros([784, 10]))$/;"	kind:variable	line:38
 W_conv1	Examples/MNIST/tester.py	/^W_conv1 = weight_variable([5, 5, 1, 32])$/;"	kind:variable	line:44
 W_conv2	Examples/MNIST/tester.py	/^W_conv2 = weight_variable([5, 5, 32, 64])$/;"	kind:variable	line:54
 W_fc1	Examples/MNIST/tester.py	/^W_fc1 = weight_variable([7 * 7 * 64, 1024])$/;"	kind:variable	line:63
 W_fc2	Examples/MNIST/tester.py	/^W_fc2 = weight_variable([1024, 10])$/;"	kind:variable	line:74
-__abs__	typelib.py	/^	def __abs__(self):$/;"	kind:member	line:208
-__add__	typelib.py	/^	def __add__(self, other):$/;"	kind:member	line:121
-__and__	typelib.py	/^	def __and__(self, other):$/;"	kind:member	line:267
-__bool__	typelib.py	/^	def __bool__(self):$/;"	kind:member	line:228
-__cmp__	typelib.py	/^	def __cmp__(self, x):$/;"	kind:member	line:101
-__coerce__	typelib.py	/^	def __coerce__(self, other):$/;"	kind:member	line:232
-__complex__	typelib.py	/^	def __complex__(self):$/;"	kind:member	line:224
-__delitem__	sgflib.py	/^    def __delitem__(self, key):$/;"	kind:member	line:443
-__delitem__	typelib.py	/^	def __delitem__(self, key):$/;"	kind:member	line:145
-__delslice__	typelib.py	/^	def __delslice__(self, low, high):$/;"	kind:member	line:419
-__div__	typelib.py	/^	def __div__(self, other):$/;"	kind:member	line:173
-__divmod__	typelib.py	/^	def __divmod__(self, other):$/;"	kind:member	line:181
-__float__	typelib.py	/^	def __float__(self):$/;"	kind:member	line:220
-__getattr__	typelib.py	/^	def __getattr__(self, name):$/;"	kind:member	line:345
-__getitem__	sgflib.py	/^    def __getitem__(self, key):$/;"	kind:member	line:423
-__getitem__	typelib.py	/^	def __getitem__(self, key):$/;"	kind:member	line:367
-__getslice__	sgflib.py	/^    def __getslice__(self, low, high):$/;"	kind:member	line:448
-__getslice__	typelib.py	/^	def __getslice__(self, low, high):$/;"	kind:member	line:378
-__hash__	typelib.py	/^	def __hash__(self):$/;"	kind:member	line:111
-__hex__	typelib.py	/^	def __hex__(self):$/;"	kind:member	line:299
 __init__	Examples/CustomRunner.py	/^    def __init__(self):$/;"	kind:member	line:34
-__init__	GameState.py	/^    def __init__(self, boardSize, winner, move):$/;"	kind:member	line:19
-__init__	GameState.py	/^    def __init__(self, prevState, move):$/;"	kind:member	line:32
 __init__	GoGame.py	/^    def __init__(self, boardLength):$/;"	kind:member	line:18
 __init__	IllegalMove.py	/^    def __init__(self, *args, **kwargs):$/;"	kind:member	line:20
 __init__	IllegalMove.py	/^    def __init__(self, *args, **kwargs):$/;"	kind:member	line:32
 __init__	IllegalMove.py	/^    def __init__(self, *args, **kwargs):$/;"	kind:member	line:9
-__init__	TrainingGame.py	/^    def __init__(self, filename):$/;"	kind:member	line:57
-__init__	sgflib.py	/^    def __init__(self, data):$/;"	kind:member	line:155
-__init__	sgflib.py	/^    def __init__(self, gametree):$/;"	kind:member	line:540
-__init__	sgflib.py	/^    def __init__(self, id, values, name=None):$/;"	kind:member	line:507
-__init__	sgflib.py	/^    def __init__(self, nodelist=None, variations=None):$/;"	kind:member	line:333
-__init__	sgflib.py	/^    def __init__(self, plist=[]):$/;"	kind:member	line:411
-__init__	typelib.py	/^	def __init__(self, data=None):$/;"	kind:member	line:78
-__int__	typelib.py	/^	def __int__(self):$/;"	kind:member	line:212
-__invert__	typelib.py	/^	def __invert__(self):$/;"	kind:member	line:291
-__len__	typelib.py	/^	def __len__(self):$/;"	kind:member	line:362
-__long__	typelib.py	/^	def __long__(self):$/;"	kind:member	line:216
-__lshift__	typelib.py	/^	def __lshift__(self, other):$/;"	kind:member	line:251
-__mod__	typelib.py	/^	def __mod__(self, other):$/;"	kind:member	line:153
-__mul__	typelib.py	/^	def __mul__(self, other):$/;"	kind:member	line:129
-__neg__	typelib.py	/^	def __neg__(self):$/;"	kind:member	line:200
-__oct__	typelib.py	/^	def __oct__(self):$/;"	kind:member	line:295
-__or__	typelib.py	/^	def __or__(self, other):$/;"	kind:member	line:275
-__pos__	typelib.py	/^	def __pos__(self):$/;"	kind:member	line:204
-__pow__	typelib.py	/^	def __pow__(self, other, mod=None):$/;"	kind:member	line:189
-__radd__	typelib.py	/^	def __radd__(self, other):$/;"	kind:member	line:125
-__rand__	typelib.py	/^	def __rand__(self, other):$/;"	kind:member	line:271
-__rcmp__	typelib.py	/^	def __rcmp__(self, x):$/;"	kind:member	line:106
-__rdiv__	typelib.py	/^	def __rdiv__(self, other):$/;"	kind:member	line:177
-__rdivmod__	typelib.py	/^	def __rdivmod__(self, other):$/;"	kind:member	line:185
-__rlshift__	typelib.py	/^	def __rlshift__(self, other):$/;"	kind:member	line:255
-__rmod__	typelib.py	/^	def __rmod__(self, other):$/;"	kind:member	line:157
-__rmul__	typelib.py	/^	def __rmul__(self, other):$/;"	kind:member	line:133
-__ror__	typelib.py	/^	def __ror__(self, other):$/;"	kind:member	line:279
-__rpow__	typelib.py	/^	def __rpow__(self, other):$/;"	kind:member	line:196
-__rrshift__	typelib.py	/^	def __rrshift__(self, other):$/;"	kind:member	line:263
-__rshift__	typelib.py	/^	def __rshift__(self, other):$/;"	kind:member	line:259
-__rsub__	typelib.py	/^	def __rsub__(self, other):$/;"	kind:member	line:169
-__rxor__	typelib.py	/^	def __rxor__(self, other):$/;"	kind:member	line:287
-__setitem__	sgflib.py	/^    def __setitem__(self, key, x):$/;"	kind:member	line:433
-__setitem__	typelib.py	/^	def __setitem__(self, key, x):$/;"	kind:member	line:141
-__setslice__	typelib.py	/^	def __setslice__(self, low, high, seq):$/;"	kind:member	line:415
-__str__	sgflib.py	/^    def __str__(self):$/;"	kind:member	line:314
-__str__	sgflib.py	/^    def __str__(self):$/;"	kind:member	line:341
-__str__	sgflib.py	/^    def __str__(self):$/;"	kind:member	line:452
-__str__	sgflib.py	/^    def __str__(self):$/;"	kind:member	line:518
-__str__	typelib.py	/^	def __str__(self):$/;"	kind:member	line:97
-__sub__	typelib.py	/^	def __sub__(self, other):$/;"	kind:member	line:165
-__xor__	typelib.py	/^	def __xor__(self, other):$/;"	kind:member	line:283
-_convert	typelib.py	/^	def _convert(self, data):$/;"	kind:member	line:247
-_convert	typelib.py	/^	def _convert(self, data):$/;"	kind:member	line:313
-_convert	typelib.py	/^	def _convert(self, data):$/;"	kind:member	line:327
-_convert	typelib.py	/^	def _convert(self, data):$/;"	kind:member	line:341
-_convert	typelib.py	/^	def _convert(self, data):$/;"	kind:member	line:392
-_convert	typelib.py	/^	def _convert(self, data):$/;"	kind:member	line:406
-_convert	typelib.py	/^	def _convert(self, data):$/;"	kind:member	line:486
-_convert	typelib.py	/^	def _convert(self, data):$/;"	kind:member	line:541
-_convertControlChars	sgflib.py	/^    def _convertControlChars(self, text):$/;"	kind:member	line:290
-_escapeText	sgflib.py	/^def _escapeText(text):$/;"	kind:function	line:614
-_reset	typelib.py	/^	def _reset(self):$/;"	kind:member	line:243
-_reset	typelib.py	/^	def _reset(self):$/;"	kind:member	line:309
-_reset	typelib.py	/^	def _reset(self):$/;"	kind:member	line:323
-_reset	typelib.py	/^	def _reset(self):$/;"	kind:member	line:337
-_reset	typelib.py	/^	def _reset(self):$/;"	kind:member	line:388
-_reset	typelib.py	/^	def _reset(self):$/;"	kind:member	line:402
-_reset	typelib.py	/^	def _reset(self):$/;"	kind:member	line:482
-_reset	typelib.py	/^	def _reset(self):$/;"	kind:member	line:537
-_setChildren	sgflib.py	/^    def _setChildren(self):$/;"	kind:member	line:598
-_setFlags	sgflib.py	/^    def _setFlags(self):$/;"	kind:member	line:605
+__init__	SGFSerializer.py	/^    def __init__(self):$/;"	kind:member	line:13
 absolute_import	Examples/MNIST/fully_connected_feed.py	/^from __future__ import absolute_import$/;"	kind:namespace	line:17
 absolute_import	Examples/MNIST/mnist.py	/^from __future__ import absolute_import$/;"	kind:namespace	line:26
 accuracy	Examples/MNIST/tester.py	/^accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))$/;"	kind:variable	line:93
-addProperty	sgflib.py	/^    def addProperty(self, property):$/;"	kind:member	line:476
+addFile	SGFSerializer.py	/^    def addFile(self, filename):$/;"	kind:member	line:19
 addpoint	GoGame.py	/^    def addpoint(self, xy):$/;"	kind:member	line:323
 all_labels	Examples/ProtobufWrite.py	/^all_labels = array.array("q", data.all_labels)$/;"	kind:variable	line:21
-append	typelib.py	/^	def append(self, x):$/;"	kind:member	line:423
 argparse	Examples/MNIST/fully_connected_feed.py	/^import argparse$/;"	kind:namespace	line:22
 argparse	tensorGo.py	/^import argparse$/;"	kind:namespace	line:3
 array	Examples/ProtobufWrite.py	/^import array$/;"	kind:namespace	line:5
-array	FileReader.py	/^import array$/;"	kind:namespace	line:2
 b	Examples/MNIST/tester.py	/^b = tf.Variable(tf.zeros([10]))$/;"	kind:variable	line:39
 b_conv1	Examples/MNIST/tester.py	/^b_conv1 = bias_variable([32])$/;"	kind:variable	line:45
 b_conv2	Examples/MNIST/tester.py	/^b_conv2 = bias_variable([64])$/;"	kind:variable	line:55
@@ -195,22 +60,15 @@ builtin	Examples/MNIST/fully_connected_feed.py	/^from six.moves import xrange  #
 capacity	Examples/ReadQ.1.py	/^    capacity = 2000,$/;"	kind:variable	line:37
 capture	GoGame.py	/^    def capture(self, xoro):$/;"	kind:member	line:220
 checkmove	GoGame.py	/^    def checkmove(self, x, y):$/;"	kind:member	line:383
-clear	typelib.py	/^	def clear(self):$/;"	kind:member	line:511
 concat	GoGame.py	/^    def concat(self, xoro):$/;"	kind:member	line:278
-conjugate	typelib.py	/^	def conjugate(self):$/;"	kind:member	line:354
 conv2d	Examples/MNIST/tester.py	/^def conv2d(x, W):$/;"	kind:function	line:14
 conv2d	tensorGo.py	/^def conv2d(x, W):$/;"	kind:function	line:24
 coord	Examples/csvReader.py	/^  coord = tf.train.Coordinator()$/;"	kind:variable	line:15
-copy	typelib.py	/^	def copy(self):$/;"	kind:member	line:520
 correct_prediction	Examples/MNIST/tester.py	/^correct_prediction = tf.equal(tf.argmax(y_conv,1), tf.argmax(y_,1))$/;"	kind:variable	line:92
 count	Examples/ReadQ.1.py	/^count = 0$/;"	kind:variable	line:57
 count	GoGame.py	/^    def count(self):$/;"	kind:member	line:174
-count	typelib.py	/^	def count(self, x):$/;"	kind:member	line:427
 cross_entropy	Examples/MNIST/tester.py	/^cross_entropy = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(y_conv, y_))$/;"	kind:variable	line:90
 csvReader.py	Examples/csvReader.py	1;"	kind:file	line:1
-ctrltrans	sgflib.py	/^    ctrltrans = str.maketrans("\\000\\001\\002\\003\\004\\005\\006\\007" +$/;"	kind:variable	line:151
-cursor	sgflib.py	/^    def cursor(self):$/;"	kind:member	line:374
-cursor	sgflib.py	/^    def cursor(self, gamenum=0):$/;"	kind:member	line:321
 custom_runner	Examples/CustomRunner.py	/^    custom_runner = CustomRunner()$/;"	kind:variable	line:75
 data	Examples/CustomRunner.py	/^data = OfficialVectorClassification()$/;"	kind:variable	line:8
 data	Examples/Placeholder.py	/^data = OfficialVectorClassification()$/;"	kind:variable	line:31
@@ -226,7 +84,6 @@ endGame	GoGame.py	/^    def endGame(self):$/;"	kind:member	line:663
 evaluation	Examples/MNIST/mnist.py	/^def evaluation(logits, labels):$/;"	kind:function	line:119
 example	Examples/ProtobufRead.py	/^    example = tf.train.Example()$/;"	kind:variable	line:5
 example	Examples/ProtobufWrite.py	/^    example = tf.train.Example($/;"	kind:variable	line:39
-extend	typelib.py	/^	def extend(self, x):$/;"	kind:member	line:431
 feature	Examples/ProtobufWrite.py	/^          feature={$/;"	kind:variable	line:43
 features	Examples/CustomRunner.py	/^features = data.all_vectors[trIdx]$/;"	kind:variable	line:10
 features	Examples/Placeholder.py	/^features = data.all_vectors[trIdx]$/;"	kind:variable	line:33
@@ -235,16 +92,12 @@ features	Examples/ProtobufWrite.py	/^    features = array.array("q", data.all_ve
 features	Examples/csvReader.py	/^features = tf.pack([col1, col2, col3, col4])$/;"	kind:variable	line:11
 filename	Examples/ProtobufRead.py	/^filename = "mnist.tfrecords"$/;"	kind:variable	line:3
 filename_queue	Examples/csvReader.py	/^filename_queue = tf.train.string_input_producer(["file0.csv", "file1.csv"])$/;"	kind:variable	line:1
-filenames	FileReader.py	/^filenames = make_filename_queue(10) #110599$/;"	kind:variable	line:45
 fill_feed_dict	Examples/MNIST/fully_connected_feed.py	/^def fill_feed_dict(data_set, images_pl, labels_pl):$/;"	kind:function	line:56
 fully_connected_feed.py	Examples/MNIST/fully_connected_feed.py	1;"	kind:file	line:1
-game.py	game.py	1;"	kind:file	line:1
-get	typelib.py	/^	def get(self, key, default=None):$/;"	kind:member	line:515
 get_inputs	Examples/CustomRunner.py	/^    def get_inputs(self):$/;"	kind:member	line:49
 gg	tensorGo.py	/^import GoGame as gg$/;"	kind:namespace	line:7
 goodmove	GoGame.py	/^    def goodmove(self):$/;"	kind:member	line:264
 gperm	GoGame.py	/^    def gperm(self, group):$/;"	kind:member	line:81
-gs	TrainingGame.py	/^import GameState as gs$/;"	kind:namespace	line:6
 h_conv1	Examples/MNIST/tester.py	/^h_conv1 = tf.nn.relu(conv2d(x_image, W_conv1) + b_conv1)$/;"	kind:variable	line:49
 h_conv2	Examples/MNIST/tester.py	/^h_conv2 = tf.nn.relu(conv2d(h_pool1, W_conv2) + b_conv2)$/;"	kind:variable	line:58
 h_fc1	Examples/MNIST/tester.py	/^h_fc1 = tf.nn.relu(tf.matmul(h_pool2_flat, W_fc1) + b_fc1) $/;"	kind:variable	line:66
@@ -252,13 +105,11 @@ h_fc1_drop	Examples/MNIST/tester.py	/^h_fc1_drop = tf.nn.dropout(h_fc1, keep_pro
 h_pool1	Examples/MNIST/tester.py	/^h_pool1 = max_pool_2x2(h_conv1)$/;"	kind:variable	line:50
 h_pool2	Examples/MNIST/tester.py	/^h_pool2 = max_pool_2x2(h_conv2)$/;"	kind:variable	line:59
 h_pool2_flat	Examples/MNIST/tester.py	/^h_pool2_flat = tf.reshape(h_pool2, [-1, 7*7*64])$/;"	kind:variable	line:65
-has_key	typelib.py	/^	def has_key(self, key):$/;"	kind:member	line:494
 im	GoGame.py	/^import IllegalMove as im$/;"	kind:namespace	line:4
 im	tensorGo.py	/^import IllegalMove as im$/;"	kind:namespace	line:8
 image	Examples/ProtobufRead.py	/^    image = example.features.feature['image'].int64_list.value$/;"	kind:variable	line:9
 image	Examples/ReadQ.1.py	/^image = tf.cast(image, tf.float32) \/ 255.$/;"	kind:variable	line:32
 images_batch	Examples/Placeholder.py	/^images_batch = tf.placeholder(dtype=tf.float32, shape=[None, 28*28])$/;"	kind:variable	line:8
-index	typelib.py	/^	def index(self, x):$/;"	kind:member	line:436
 inference	Examples/MNIST/mnist.py	/^def inference(images, hidden1_units, hidden2_units):$/;"	kind:function	line:42
 init	Examples/CustomRunner.py	/^init = tf.initialize_all_variables()$/;"	kind:variable	line:88
 init	Examples/Placeholder.py	/^init = tf.global_variables_initializer()$/;"	kind:variable	line:22
@@ -268,23 +119,15 @@ initialize	GoGame.py	/^def initialize(boardsize):$/;"	kind:function	line:7
 input_data	Examples/MNIST/fully_connected_feed.py	/^from tensorflow.examples.tutorials.mnist import input_data$/;"	kind:namespace	line:30
 input_data	Examples/MNIST/tester.py	/^from tensorflow.examples.tutorials.mnist import input_data$/;"	kind:namespace	line:1
 input_data	tensorGo.py	/^from tensorflow.examples.tutorials.mnist import input_data$/;"	kind:namespace	line:1
-input_pipeline	FileReader.py	/^def input_pipeline(filenames, batch_size, read_threads, num_epochs=None):$/;"	kind:function	line:25
-insert	typelib.py	/^	def insert(self, i, x):$/;"	kind:member	line:441
 int64_list	Examples/ProtobufWrite.py	/^                int64_list=tf.train.Int64List(value=[label])),$/;"	kind:variable	line:47
 int64_list	Examples/ProtobufWrite.py	/^                int64_list=tf.train.Int64List(value=features)),$/;"	kind:variable	line:49
-itemgetter	TrainingGame.py	/^from operator import itemgetter$/;"	kind:namespace	line:7
-items	typelib.py	/^	def items(self):$/;"	kind:member	line:506
 iter_	Examples/Placeholder.py	/^iter_ = data_iterator()$/;"	kind:variable	line:54
 keep_prob	Examples/MNIST/tester.py	/^keep_prob = tf.placeholder(tf.float32)$/;"	kind:variable	line:70
-keys	typelib.py	/^	def keys(self):$/;"	kind:member	line:498
 label	Examples/ProtobufRead.py	/^    label = example.features.feature['label'].int64_list.value[0]$/;"	kind:variable	line:10
 label	Examples/ProtobufWrite.py	/^    label = all_labels[example_idx]$/;"	kind:variable	line:24
 labels	Examples/CustomRunner.py	/^labels = data.all_labels[trIdx]$/;"	kind:variable	line:11
 labels	Examples/Placeholder.py	/^labels = data.all_labels[trIdx]$/;"	kind:variable	line:34
 labels_batch	Examples/Placeholder.py	/^labels_batch = tf.placeholder(dtype=tf.int32, shape=[None, ])$/;"	kind:variable	line:9
-letter2Number	GameState.py	/^def letter2Number(letter):$/;"	kind:function	line:4
-logging	sgflib.py	/^import logging$/;"	kind:namespace	line:63
-logging	typelib.py	/^import logging$/;"	kind:namespace	line:70
 loss	Examples/CustomRunner.py	/^loss = tf.nn.sparse_softmax_cross_entropy_with_logits(y_pred, labels_batch)$/;"	kind:variable	line:81
 loss	Examples/MNIST/mnist.py	/^def loss(logits, labels):$/;"	kind:function	line:81
 loss	Examples/Placeholder.py	/^loss = tf.nn.sparse_softmax_cross_entropy_with_logits(y_pred, labels_batch)$/;"	kind:variable	line:15
@@ -292,15 +135,10 @@ loss	Examples/ReadQ.1.py	/^loss = tf.nn.sparse_softmax_cross_entropy_with_logits
 loss_mean	Examples/CustomRunner.py	/^loss_mean = tf.reduce_mean(loss)$/;"	kind:variable	line:84
 loss_mean	Examples/Placeholder.py	/^loss_mean = tf.reduce_mean(loss)$/;"	kind:variable	line:16
 loss_mean	Examples/ReadQ.1.py	/^loss_mean = tf.reduce_mean(loss)$/;"	kind:variable	line:47
-macfs	sgflib.py	/^    import macfs$/;"	kind:namespace	line:672
 main	Examples/MNIST/fully_connected_feed.py	/^def main(_):$/;"	kind:function	line:211
 main	GoGame.py	/^    def main(self):$/;"	kind:member	line:475
 main	tensorGo.py	/^def main(_):$/;"	kind:function	line:128
-mainline	sgflib.py	/^    def mainline(self):$/;"	kind:member	line:359
 makeMove	GoGame.py	/^    def makeMove(self, x, y):$/;"	kind:member	line:527
-makeNode	sgflib.py	/^    def makeNode(self, plist):$/;"	kind:member	line:366
-makeProperty	sgflib.py	/^    def makeProperty(self, id, valuelist):$/;"	kind:member	line:490
-make_filename_queue	FileReader.py	/^def make_filename_queue(num_names):$/;"	kind:function	line:38
 math	Examples/MNIST/mnist.py	/^import math$/;"	kind:namespace	line:30
 math	GoGame.py	/^import math$/;"	kind:namespace	line:3
 max_pool_2x2	Examples/MNIST/tester.py	/^def max_pool_2x2(x):$/;"	kind:function	line:17
@@ -309,82 +147,46 @@ min_after_dequeue	Examples/ReadQ.1.py	/^    min_after_dequeue = 1000$/;"	kind:va
 mnist	Examples/MNIST/fully_connected_feed.py	/^from tensorflow.examples.tutorials.mnist import mnist$/;"	kind:namespace	line:31
 mnist	Examples/MNIST/tester.py	/^mnist = input_data.read_data_sets('MNIST_data', one_hot=True)$/;"	kind:variable	line:21
 mnist.py	Examples/MNIST/mnist.py	1;"	kind:file	line:1
-moveParse	GameState.py	/^def moveParse(moveString):$/;"	kind:function	line:7
-next	sgflib.py	/^    def next(self, varnum=0):$/;"	kind:member	line:555
 np	Examples/CustomRunner.py	/^import numpy as np$/;"	kind:namespace	line:5
 np	Examples/Placeholder.py	/^import numpy as np$/;"	kind:namespace	line:28
 np	Examples/ProtobufWrite.py	/^import numpy as np$/;"	kind:namespace	line:4
-np	FileReader.py	/^import numpy as np$/;"	kind:namespace	line:3
-np	TrainingGame.py	/^import numpy as np$/;"	kind:namespace	line:3
+np	SGFSerializer.py	/^import numpy as np$/;"	kind:namespace	line:2
 np	tensorGo.py	/^import numpy as np$/;"	kind:namespace	line:9
 numpy	Examples/Placeholder.py	/^print("Load mnist, import numpy")$/;"	kind:namespace	line:26
 os	Examples/MNIST/fully_connected_feed.py	/^import os.path$/;"	kind:namespace	line:23
-os	sgflib.py	/^    import os$/;"	kind:namespace	line:691
 os	tensorGo.py	/^import os.path$/;"	kind:namespace	line:4
-parse	sgflib.py	/^    def parse(self):$/;"	kind:member	line:161
-parseGameTree	sgflib.py	/^    def parseGameTree(self):$/;"	kind:member	line:182
-parseNode	sgflib.py	/^    def parseNode(self):$/;"	kind:member	line:224
-parseNode	sgflib.py	/^    def parseNode(self):$/;"	kind:member	line:300
-parseOneGame	sgflib.py	/^    def parseOneGame(self):$/;"	kind:member	line:172
-parsePropertyValue	sgflib.py	/^    def parsePropertyValue(self):$/;"	kind:member	line:245
-parseVariations	sgflib.py	/^    def parseVariations(self):$/;"	kind:member	line:204
 path	Examples/MNIST/fully_connected_feed.py	/^import os.path$/;"	kind:namespace	line:23
 path	tensorGo.py	/^import os.path$/;"	kind:namespace	line:4
 placeholder_inputs	Examples/MNIST/fully_connected_feed.py	/^def placeholder_inputs(batch_size):$/;"	kind:function	line:37
 play_go	GoGame.py	/^def play_go(BOARD_LENGTH):$/;"	kind:function	line:688
-pop	typelib.py	/^	def pop(self, i=-1):$/;"	kind:member	line:446
-previous	sgflib.py	/^    def previous(self):$/;"	kind:member	line:582
 print_function	Examples/MNIST/fully_connected_feed.py	/^from __future__ import print_function$/;"	kind:namespace	line:19
 print_function	Examples/MNIST/mnist.py	/^from __future__ import print_function$/;"	kind:namespace	line:28
 printboard	GoGame.py	/^    def printboard(self, gs):$/;"	kind:member	line:71
-propertySearch	sgflib.py	/^    def propertySearch(self, pid, getall=0):$/;"	kind:member	line:378
 pylint	Examples/MNIST/fully_connected_feed.py	/^from six.moves import xrange  # pylint: disable=redefined-builtin$/;"	kind:namespace	line:27
 random	GoGame.py	/^import random$/;"	kind:namespace	line:1
+random	SGFSerializer.py	/^import random$/;"	kind:namespace	line:3
 random	tensorGo.py	/^import random$/;"	kind:namespace	line:10
 randomMove	GoGame.py	/^    def randomMove(self):$/;"	kind:member	line:594
-re	TrainingGame.py	/^import re$/;"	kind:namespace	line:5
-re	sgflib.py	/^import re$/;"	kind:namespace	line:65
-reCharsToEscape	sgflib.py	/^reCharsToEscape = re.compile(r'\\]|\\\\')			# characters that need to be \\escaped$/;"	kind:variable	line:612
-reEscape	sgflib.py	/^    reEscape = re.compile(r'\\\\')$/;"	kind:variable	line:146
-reGameTreeEnd	sgflib.py	/^    reGameTreeEnd = re.compile(r'\\s*\\)')$/;"	kind:variable	line:141
-reGameTreeNext	sgflib.py	/^    reGameTreeNext = re.compile(r'\\s*(;|\\(|\\))')$/;"	kind:variable	line:142
-reGameTreeStart	sgflib.py	/^    reGameTreeStart = re.compile(r'\\s*\\(')$/;"	kind:variable	line:140
-reLineBreak	sgflib.py	/^    reLineBreak = re.compile(r'\\r\\n?|\\n\\r?')  # CR, LF, CR\/LF, LF\/CR$/;"	kind:variable	line:147
-reNodeContents	sgflib.py	/^    reNodeContents = re.compile(r'\\s*([A-Za-z]+(?=\\s*\\[))')$/;"	kind:variable	line:143
-rePropertyEnd	sgflib.py	/^    rePropertyEnd = re.compile(r'\\]')$/;"	kind:variable	line:145
-rePropertyStart	sgflib.py	/^    rePropertyStart = re.compile(r'\\s*\\[')$/;"	kind:variable	line:144
 read_and_decode_single_example	Examples/ReadQ.1.py	/^def read_and_decode_single_example(filename):$/;"	kind:function	line:3
 read_and_decode_single_example	Examples/ReadQ.py	/^def read_and_decode_single_example(filename):$/;"	kind:function	line:3
-read_my_file_format	FileReader.py	/^def read_my_file_format(filename_queue):$/;"	kind:function	line:15
 readable	GoGame.py	/^    def readable(self, gs):$/;"	kind:member	line:164
 reader	Examples/csvReader.py	/^reader = tf.TextLineReader()$/;"	kind:variable	line:3
 record_defaults	Examples/csvReader.py	/^record_defaults = [[1], [1], [1], [1], [1]]$/;"	kind:variable	line:8
 redefined	Examples/MNIST/fully_connected_feed.py	/^from six.moves import xrange  # pylint: disable=redefined-builtin$/;"	kind:namespace	line:27
-remove	typelib.py	/^	def remove(self, x):$/;"	kind:member	line:451
-reset	sgflib.py	/^    def reset(self):$/;"	kind:member	line:545
-reverse	typelib.py	/^	def reverse(self):$/;"	kind:member	line:456
 run	GoGame.py	/^    def run(self):$/;"	kind:member	line:511
 run_training	Examples/MNIST/fully_connected_feed.py	/^def run_training():$/;"	kind:function	line:109
 run_training	tensorGo.py	/^def run_training():$/;"	kind:function	line:31
 selectmove	GoGame.py	/^    def selectmove(self):$/;"	kind:member	line:337
-selfTest1	sgflib.py	/^def selfTest1(onConsole=0):$/;"	kind:function	line:628
-selfTest2	sgflib.py	/^def selfTest2(onConsole=0):$/;"	kind:function	line:670
 serialized	Examples/ProtobufWrite.py	/^    serialized = example.SerializeToString()$/;"	kind:variable	line:55
 sess	Examples/CustomRunner.py	/^sess = tf.Session(config=tf.ConfigProto(intra_op_parallelism_threads=8))$/;"	kind:variable	line:87
 sess	Examples/MNIST/tester.py	/^sess = tf.InteractiveSession()$/;"	kind:variable	line:25
 sess	Examples/Placeholder.py	/^sess = tf.Session()$/;"	kind:variable	line:20
 sess	Examples/ReadQ.1.py	/^sess = tf.Session()$/;"	kind:variable	line:51
 sess	Examples/ReadQ.py	/^sess = tf.Session()$/;"	kind:variable	line:32
-sgf_dict	TrainingGame.py	/^sgf_dict = dict([$/;"	kind:variable	line:10
-sgflib	game.py	/^import sgflib$/;"	kind:namespace	line:1
-sgflib.py	sgflib.py	1;"	kind:file	line:1
-some_decoder	FileReader.py	/^def some_decoder(record_string):$/;"	kind:function	line:6
-some_processing	FileReader.py	/^def some_processing(example):$/;"	kind:function	line:10
-sort	typelib.py	/^	def sort(self, func=None):$/;"	kind:member	line:460
+sgf	SGFSerializer.py	/^import sgf$/;"	kind:namespace	line:1
+sgfs	SGFSerializer.py	/^sgfs = SGFSerializer()$/;"	kind:variable	line:24
 start_threads	Examples/CustomRunner.py	/^    def start_threads(self, sess, n_threads=1):$/;"	kind:member	line:63
-string	sgflib.py	/^import string$/;"	kind:namespace	line:64
 sys	Examples/MNIST/fully_connected_feed.py	/^import sys$/;"	kind:namespace	line:24
-sys	TrainingGame.py	/^import sys$/;"	kind:namespace	line:4
 sys	tensorGo.py	/^import sys$/;"	kind:namespace	line:5
 t0	Examples/MNIST/tester.py	/^t0 = time.clock()$/;"	kind:variable	line:26
 t1	Examples/MNIST/tester.py	/^t1 = time.clock()$/;"	kind:variable	line:104
@@ -399,7 +201,7 @@ tf	Examples/ProtobufRead.py	/^import tensorflow as tf$/;"	kind:namespace	line:1
 tf	Examples/ProtobufWrite.py	/^import tensorflow as tf$/;"	kind:namespace	line:6
 tf	Examples/ReadQ.1.py	/^import tensorflow as tf$/;"	kind:namespace	line:1
 tf	Examples/ReadQ.py	/^import tensorflow as tf$/;"	kind:namespace	line:1
-tf	FileReader.py	/^import tensorflow as tf$/;"	kind:namespace	line:1
+tf	SGFSerializer.py	/^import tensorflow as tf$/;"	kind:namespace	line:4
 tf	tensorGo.py	/^import tensorflow as tf$/;"	kind:namespace	line:2
 thread_main	Examples/CustomRunner.py	/^    def thread_main(self, sess):$/;"	kind:member	line:56
 threading	Examples/CustomRunner.py	/^import threading$/;"	kind:namespace	line:3
@@ -410,7 +212,6 @@ time	Examples/MNIST/tester.py	/^import time$/;"	kind:namespace	line:3
 time	GoGame.py	/^import time$/;"	kind:namespace	line:2
 time	tensorGo.py	/^import time$/;"	kind:namespace	line:6
 tqdm	Examples/ProtobufWrite.py	/^from tqdm import tqdm$/;"	kind:namespace	line:3
-tqdm	FileReader.py	/^from tqdm import tqdm$/;"	kind:namespace	line:4
 trIdx	Examples/CustomRunner.py	/^trIdx = data.sel_idxs[:]$/;"	kind:variable	line:9
 trIdx	Examples/Placeholder.py	/^trIdx = data.sel_idxs[:]$/;"	kind:variable	line:32
 trIdx	Examples/ProtobufWrite.py	/^trIdx = data.sel_idxs[:]$/;"	kind:variable	line:11
@@ -420,10 +221,6 @@ train_op	Examples/ReadQ.1.py	/^train_op = tf.train.AdamOptimizer().minimize(loss
 train_step	Examples/MNIST/tester.py	/^train_step = tf.train.AdamOptimizer(1e-4).minimize(cross_entropy)$/;"	kind:variable	line:91
 training	Examples/MNIST/mnist.py	/^def training(loss, learning_rate):$/;"	kind:function	line:95
 turn	GoGame.py	/^    def turn(self):$/;"	kind:member	line:409
-typelib.py	typelib.py	1;"	kind:file	line:1
-update	sgflib.py	/^    def update(self, dict):$/;"	kind:member	line:470
-update	typelib.py	/^	def update(self, dict):$/;"	kind:member	line:524
-values	typelib.py	/^	def values(self):$/;"	kind:member	line:502
 w	Examples/CustomRunner.py	/^w = tf.get_variable("w1", [28*28, 10])$/;"	kind:variable	line:79
 w	Examples/Placeholder.py	/^w = tf.get_variable("w1", [28*28, 10])$/;"	kind:variable	line:13
 w	Examples/ReadQ.1.py	/^w = tf.get_variable("w1", [28*28, 10])$/;"	kind:variable	line:42
