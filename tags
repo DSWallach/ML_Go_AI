@@ -26,8 +26,7 @@ ProtobufRead.py	Examples/ProtobufRead.py	1;"	kind:file	line:1
 ProtobufWrite.py	Examples/ProtobufWrite.py	1;"	kind:file	line:1
 ReadQ.1.py	Examples/ReadQ.1.py	1;"	kind:file	line:1
 ReadQ.py	Examples/ReadQ.py	1;"	kind:file	line:1
-SGFSerializer	SGFSerializer.py	/^class SGFSerializer(sgf.Collection):$/;"	kind:class	line:7
-SGFSerializer.py	SGFSerializer.py	1;"	kind:file	line:1
+SGFSerializer	SGFSerializer.py	/^class SGFSerializer():$/;"	c
 W	Examples/MNIST/tester.py	/^W = tf.Variable(tf.zeros([784, 10]))$/;"	kind:variable	line:38
 W_conv1	Examples/MNIST/tester.py	/^W_conv1 = weight_variable([5, 5, 1, 32])$/;"	kind:variable	line:44
 W_conv2	Examples/MNIST/tester.py	/^W_conv2 = weight_variable([5, 5, 32, 64])$/;"	kind:variable	line:54
@@ -38,16 +37,17 @@ __init__	GoGame.py	/^    def __init__(self, boardLength):$/;"	kind:member	line:1
 __init__	IllegalMove.py	/^    def __init__(self, *args, **kwargs):$/;"	kind:member	line:20
 __init__	IllegalMove.py	/^    def __init__(self, *args, **kwargs):$/;"	kind:member	line:32
 __init__	IllegalMove.py	/^    def __init__(self, *args, **kwargs):$/;"	kind:member	line:9
-__init__	SGFSerializer.py	/^    def __init__(self):$/;"	kind:member	line:13
+__init__	SGFSerializer.py	/^    def __init__(self, boardSize):$/;"	m	class:SGFSerializer
 absolute_import	Examples/MNIST/fully_connected_feed.py	/^from __future__ import absolute_import$/;"	kind:namespace	line:17
 absolute_import	Examples/MNIST/mnist.py	/^from __future__ import absolute_import$/;"	kind:namespace	line:26
 accuracy	Examples/MNIST/tester.py	/^accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))$/;"	kind:variable	line:93
-addFile	SGFSerializer.py	/^    def addFile(self, filename):$/;"	kind:member	line:19
+addFile	SGFSerializer.py	/^    def addFile(self, number):        $/;"	m	class:SGFSerializer
 addpoint	GoGame.py	/^    def addpoint(self, xy):$/;"	kind:member	line:323
 all_labels	Examples/ProtobufWrite.py	/^all_labels = array.array("q", data.all_labels)$/;"	kind:variable	line:21
 argparse	Examples/MNIST/fully_connected_feed.py	/^import argparse$/;"	kind:namespace	line:22
 argparse	tensorGo.py	/^import argparse$/;"	kind:namespace	line:3
 array	Examples/ProtobufWrite.py	/^import array$/;"	kind:namespace	line:5
+array	SGFSerializer.py	/^import array$/;"	i
 b	Examples/MNIST/tester.py	/^b = tf.Variable(tf.zeros([10]))$/;"	kind:variable	line:39
 b_conv1	Examples/MNIST/tester.py	/^b_conv1 = bias_variable([32])$/;"	kind:variable	line:45
 b_conv2	Examples/MNIST/tester.py	/^b_conv2 = bias_variable([64])$/;"	kind:variable	line:55
@@ -63,6 +63,8 @@ checkmove	GoGame.py	/^    def checkmove(self, x, y):$/;"	kind:member	line:383
 concat	GoGame.py	/^    def concat(self, xoro):$/;"	kind:member	line:278
 conv2d	Examples/MNIST/tester.py	/^def conv2d(x, W):$/;"	kind:function	line:14
 conv2d	tensorGo.py	/^def conv2d(x, W):$/;"	kind:function	line:24
+convertFile	SGFSerializer.py	/^    def convertFile(self, index):$/;"	m	class:SGFSerializer
+convertFiles	SGFSerializer.py	/^    def convertFiles(self, num_files):$/;"	m	class:SGFSerializer
 coord	Examples/csvReader.py	/^  coord = tf.train.Coordinator()$/;"	kind:variable	line:15
 correct_prediction	Examples/MNIST/tester.py	/^correct_prediction = tf.equal(tf.argmax(y_conv,1), tf.argmax(y_,1))$/;"	kind:variable	line:92
 count	Examples/ReadQ.1.py	/^count = 0$/;"	kind:variable	line:57
@@ -147,13 +149,15 @@ min_after_dequeue	Examples/ReadQ.1.py	/^    min_after_dequeue = 1000$/;"	kind:va
 mnist	Examples/MNIST/fully_connected_feed.py	/^from tensorflow.examples.tutorials.mnist import mnist$/;"	kind:namespace	line:31
 mnist	Examples/MNIST/tester.py	/^mnist = input_data.read_data_sets('MNIST_data', one_hot=True)$/;"	kind:variable	line:21
 mnist.py	Examples/MNIST/mnist.py	1;"	kind:file	line:1
+mp	SGFSerializer.py	/^import multiprocessing as mp$/;"	i
 np	Examples/CustomRunner.py	/^import numpy as np$/;"	kind:namespace	line:5
 np	Examples/Placeholder.py	/^import numpy as np$/;"	kind:namespace	line:28
 np	Examples/ProtobufWrite.py	/^import numpy as np$/;"	kind:namespace	line:4
-np	SGFSerializer.py	/^import numpy as np$/;"	kind:namespace	line:2
+np	SGFSerializer.py	/^import numpy as np$/;"	i
 np	tensorGo.py	/^import numpy as np$/;"	kind:namespace	line:9
 numpy	Examples/Placeholder.py	/^print("Load mnist, import numpy")$/;"	kind:namespace	line:26
 os	Examples/MNIST/fully_connected_feed.py	/^import os.path$/;"	kind:namespace	line:23
+os	SGFSerializer.py	/^import os$/;"	i
 os	tensorGo.py	/^import os.path$/;"	kind:namespace	line:4
 path	Examples/MNIST/fully_connected_feed.py	/^import os.path$/;"	kind:namespace	line:23
 path	tensorGo.py	/^import os.path$/;"	kind:namespace	line:4
@@ -164,7 +168,7 @@ print_function	Examples/MNIST/mnist.py	/^from __future__ import print_function$/
 printboard	GoGame.py	/^    def printboard(self, gs):$/;"	kind:member	line:71
 pylint	Examples/MNIST/fully_connected_feed.py	/^from six.moves import xrange  # pylint: disable=redefined-builtin$/;"	kind:namespace	line:27
 random	GoGame.py	/^import random$/;"	kind:namespace	line:1
-random	SGFSerializer.py	/^import random$/;"	kind:namespace	line:3
+random	SGFSerializer.py	/^import random$/;"	i
 random	tensorGo.py	/^import random$/;"	kind:namespace	line:10
 randomMove	GoGame.py	/^    def randomMove(self):$/;"	kind:member	line:594
 read_and_decode_single_example	Examples/ReadQ.1.py	/^def read_and_decode_single_example(filename):$/;"	kind:function	line:3
@@ -183,10 +187,10 @@ sess	Examples/MNIST/tester.py	/^sess = tf.InteractiveSession()$/;"	kind:variable
 sess	Examples/Placeholder.py	/^sess = tf.Session()$/;"	kind:variable	line:20
 sess	Examples/ReadQ.1.py	/^sess = tf.Session()$/;"	kind:variable	line:51
 sess	Examples/ReadQ.py	/^sess = tf.Session()$/;"	kind:variable	line:32
-sgf	SGFSerializer.py	/^import sgf$/;"	kind:namespace	line:1
-sgfs	SGFSerializer.py	/^sgfs = SGFSerializer()$/;"	kind:variable	line:24
+sgf	SGFSerializer.py	/^import sgf$/;"	i
 start_threads	Examples/CustomRunner.py	/^    def start_threads(self, sess, n_threads=1):$/;"	kind:member	line:63
 sys	Examples/MNIST/fully_connected_feed.py	/^import sys$/;"	kind:namespace	line:24
+sys	SGFSerializer.py	/^import sys$/;"	i
 sys	tensorGo.py	/^import sys$/;"	kind:namespace	line:5
 t0	Examples/MNIST/tester.py	/^t0 = time.clock()$/;"	kind:variable	line:26
 t1	Examples/MNIST/tester.py	/^t1 = time.clock()$/;"	kind:variable	line:104
@@ -201,7 +205,6 @@ tf	Examples/ProtobufRead.py	/^import tensorflow as tf$/;"	kind:namespace	line:1
 tf	Examples/ProtobufWrite.py	/^import tensorflow as tf$/;"	kind:namespace	line:6
 tf	Examples/ReadQ.1.py	/^import tensorflow as tf$/;"	kind:namespace	line:1
 tf	Examples/ReadQ.py	/^import tensorflow as tf$/;"	kind:namespace	line:1
-tf	SGFSerializer.py	/^import tensorflow as tf$/;"	kind:namespace	line:4
 tf	tensorGo.py	/^import tensorflow as tf$/;"	kind:namespace	line:2
 thread_main	Examples/CustomRunner.py	/^    def thread_main(self, sess):$/;"	kind:member	line:56
 threading	Examples/CustomRunner.py	/^import threading$/;"	kind:namespace	line:3
@@ -226,6 +229,7 @@ w	Examples/Placeholder.py	/^w = tf.get_variable("w1", [28*28, 10])$/;"	kind:vari
 w	Examples/ReadQ.1.py	/^w = tf.get_variable("w1", [28*28, 10])$/;"	kind:variable	line:42
 weight_variable	Examples/MNIST/tester.py	/^def weight_variable(shape):$/;"	kind:function	line:6
 weight_variable	tensorGo.py	/^def weight_variable(shape):$/;"	kind:function	line:16
+writeCSV	SGFSerializer.py	/^    def writeCSV(self, game_tree, index):$/;"	m	class:SGFSerializer
 writer	Examples/ProtobufWrite.py	/^writer = tf.python_io.TFRecordWriter("mnist.tfrecords")$/;"	kind:variable	line:18
 x	Examples/MNIST/tester.py	/^x = tf.placeholder(tf.float32, shape=[None, 784])$/;"	kind:variable	line:32
 x_image	Examples/MNIST/tester.py	/^x_image = tf.reshape(x, [-1,28,28,1])$/;"	kind:variable	line:46
