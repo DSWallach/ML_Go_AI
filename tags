@@ -38,7 +38,7 @@ __init__	GoGame.py	/^    def __init__(self, boardLength):$/;"	kind:member	line:1
 __init__	IllegalMove.py	/^    def __init__(self, *args, **kwargs):$/;"	kind:member	line:20
 __init__	IllegalMove.py	/^    def __init__(self, *args, **kwargs):$/;"	kind:member	line:32
 __init__	IllegalMove.py	/^    def __init__(self, *args, **kwargs):$/;"	kind:member	line:9
-__init__	SGFSerializer.py	/^    def __init__(self, path, dest, boardSize):$/;"	m	class:SGFSerializer
+__init__	SGFSerializer.py	/^    def __init__(self, path, dest, boardSize, value):$/;"	m	class:SGFSerializer
 absolute_import	Examples/MNIST/fully_connected_feed.py	/^from __future__ import absolute_import$/;"	kind:namespace	line:17
 absolute_import	Examples/MNIST/mnist.py	/^from __future__ import absolute_import$/;"	kind:namespace	line:26
 accuracy	Examples/MNIST/tester.py	/^accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))$/;"	kind:variable	line:93
@@ -64,8 +64,8 @@ checkmove	GoGame.py	/^    def checkmove(self, x, y):$/;"	kind:member	line:383
 concat	GoGame.py	/^    def concat(self, xoro):$/;"	kind:member	line:278
 conv2d	Examples/MNIST/tester.py	/^def conv2d(x, W):$/;"	kind:function	line:14
 conv2d	tensorGo.py	/^def conv2d(x, W):$/;"	kind:function	line:24
-convertFile	SGFSerializer.py	/^    def convertFile(self, index, value):$/;"	m	class:SGFSerializer
-convertFiles	SGFSerializer.py	/^    def convertFiles(self, num_files, value):$/;"	m	class:SGFSerializer
+convertFile	SGFSerializer.py	/^    def convertFile(self, index):$/;"	m	class:SGFSerializer
+convertFiles	SGFSerializer.py	/^    def convertFiles(self, num_files):$/;"	m	class:SGFSerializer
 convertFilesNoT	SGFSerializer.py	/^    def convertFilesNoT(self, num_files):$/;"	m	class:SGFSerializer
 coord	Examples/csvReader.py	/^  coord = tf.train.Coordinator()$/;"	kind:variable	line:15
 correct_prediction	Examples/MNIST/tester.py	/^correct_prediction = tf.equal(tf.argmax(y_conv,1), tf.argmax(y_,1))$/;"	kind:variable	line:92

@@ -134,7 +134,6 @@ class SGFSerializer():
         #print ("Parse file "+str(index)+"\n")
         with open(filename, 'w', encoding='utf-8', errors='ignore') as F:
             game_state = [[0 for x in range(self.boardSize)] for y in range(self.boardSize)]
-            winner_val
             try:
                  try:
                      try:
@@ -178,55 +177,58 @@ class SGFSerializer():
                                           loser = 'B'
                                       else:
                                           loser = 'W'
-                                  first = False
                               else:
                                   try:
                                       try:
                                           move = node.properties[winner][0]
                                           col = ord(move[0]) - 96
                                           row = ord(move[1]) - 96
-                                          game_state_win[row][col] = 1
+                                          game_state[row][col] = 1
                                         # Starting characters for a lisp vector
                                           F.write("#(")
                                           for x in range(self.boardSize):
                                               for y in range(self.boardSize):
-                                                  F.write(str(game_state_lose[x][y])+' ')
+                                                  F.write(str(game_state[x][y])+' ')
                                           F.write(")")
                                           F.write("#(")
                                           if winner == 'B':
-                                              F.write(1)
+                                              F.write("1")
                                           else:
-                                              F.write(-1)
+                                              F.write("-1")
                                           F.write(")")
-                                          F.write("\n")
+                                          F.write('\n')
                                       except KeyError:
                                           move = node.properties[loser][0]
                                           col = ord(move[0]) - 96
                                           row = ord(move[1]) - 96
-                                          game_state_win[row][col] = -1
+                                          game_state[row][col] = -1
                                           F.write("#(")
                                           for x in range(self.boardSize):
                                               for y in range(self.boardSize):
-                                                  F.write(str(game_state_lose[x][y])+' ')
+                                                  F.write(str(game_state[x][y])+' ')
                                           F.write(")")
+                                          F.write("#(")
                                           if winner == 'B':
-                                              F.write(1)
+                                              F.write("1")
                                           else:
-                                              F.write(-1)
+                                              F.write("-1")
                                           F.write(")")
-                                          F.write("\n")
+                                          F.write('\n')
                                   except KeyError:
                                       sys.stderr.write("Key error for B or W in file "+str(index)+"\n")
                                       break;
                      except IndexError:
+                         sys.stderr.write("Index error in file "+str(index)+"\n")
                          if node.first:
                              os.remove(filename)
                          return
                  except KeyError:
+                     sys.stderr.write("Key error in file "+str(index)+"\n")
                      if node.first:
                          os.remove(filename)
                      return 
             except Exception as err:
+                sys.stderr.write("Error in file "+str(index)+"\n")
                 if node.first:
                     os.remove(filename)
                 return
@@ -236,9 +238,9 @@ class SGFSerializer():
         try:
             game = self.addFile(index)
             if self.value:
-                self.writeCSV(game, index)
-            else:
                 self.writeCSVvalue(game, index)
+            else:
+                self.writeCSV(game, index)
         except Exception:
             return index
 
