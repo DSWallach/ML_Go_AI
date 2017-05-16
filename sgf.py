@@ -180,7 +180,7 @@ class Parser:
             if ch == "\r" or ch == "\n":
                 self.curLine += 1
 
-            return ch in " \t\r\n" or ord(ch) == 10
+            return (ch in " \t\r\n" or ord(ch) == 10)
 
         def ucletter(ch):
             return ch in "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -195,11 +195,8 @@ class Parser:
                 if whitespace(ch):
                     state = 0
                 elif ch == '(':
-                    if sgf_string[i+1] == ";":
-                        self.start_gametree()
-                        state = 1
-                    else:
-                        state = 0
+                    state = 1 
+                    self.start_gametree()
                 else:
                     state = 0  # ignore everything up to first (
                     # raise ParseException(ch, state)
@@ -318,18 +315,15 @@ class Parser:
                 elif ch == "[":
                     nestingLevel += 1
                 elif whitespace(ch):
-                    continue
-                    #pass
+                    pass
                 else:
-                    #print(ch)
-                    continue
-                    #pass
+                    pass
                 # Otherwise do nothing
             else:
                 # only a programming error could get here
                 raise Exception(state)  # pragma: no cover
 
-        if state != 4:
+        if state != 4 and state != 8:
             #print ("State not 4 on line "+str(self.curLine))
             raise ParseException(ch, state, self.curLine)
 

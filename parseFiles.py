@@ -1,5 +1,5 @@
 from SGFSerializer import SGFSerializer
 
-sgf = SGFSerializer(9)
+sgf = SGFSerializer("/home/david/goData", "/home/david/csvValueData", 9, True)
 
-sgf.convertFiles(2140012)
+sgf.convertFiles(1000000)
